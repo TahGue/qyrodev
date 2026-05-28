@@ -27,7 +27,7 @@ export default function Contact() {
           className="text-[#c9c4d8] text-lg mb-10 relative z-10"
           style={{ fontFamily: "var(--font-space-grotesk)" }}
         >
-          We&apos;re currently accepting high-impact projects for Q3 2025.
+          We&apos;re currently accepting high-impact projects for Q3 2026.
         </p>
 
         {sent ? (
