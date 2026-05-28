@@ -21,7 +21,7 @@ export default function Footer() {
               terminal
             </span>
             <Image
-              src="/logoq.svg"
+              src="/logoq.png"
               alt="QYRODEV Logo"
               width={24}
               height={24}

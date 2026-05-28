@@ -67,7 +67,7 @@ export default function Navbar() {
             terminal
           </span>
           <Image
-            src="/logoq.svg"
+            src="/logoq.png"
             alt="QYRODEV Logo"
             width={32}
             height={32}
