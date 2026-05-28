@@ -42,7 +42,7 @@ export default function Footer() {
             <a
               key={link.label}
               href={link.href}
-              className="text-xs font-bold text-[#c9c4d8] hover:text-[#4cd6ff] transition-colors tracking-widest uppercase"
+              className="text-xs font-bold text-[#c9c4d8] hover:text-white transition-colors duration-200 tracking-widest uppercase opacity-70 hover:opacity-100"
               style={{ fontFamily: "var(--font-space-grotesk)" }}
             >
               {link.label}

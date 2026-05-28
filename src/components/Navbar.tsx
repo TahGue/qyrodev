@@ -85,7 +85,7 @@ export default function Navbar() {
                 href={link.href}
                 onClick={(e) => handleClick(e, link.href)}
                 className={`relative text-sm font-bold tracking-widest uppercase pb-1 transition-colors duration-300 ${
-                  isActive ? "text-[#cabeff]" : "text-[#c9c4d8] hover:text-[#4cd6ff]"
+                  isActive ? "text-[#cabeff]" : "text-[#c9c4d8] hover:text-white"
                 }`}
                 style={{ fontFamily: "var(--font-space-grotesk)" }}
               >
@@ -126,7 +126,7 @@ export default function Navbar() {
                 href={link.href}
                 onClick={(e) => handleClick(e, link.href)}
                 className={`text-sm font-bold tracking-widest uppercase py-1 transition-colors ${
-                  isActive ? "text-[#cabeff]" : "text-[#c9c4d8] hover:text-[#4cd6ff]"
+                  isActive ? "text-[#cabeff]" : "text-[#c9c4d8] hover:text-white"
                 }`}
                 style={{ fontFamily: "var(--font-space-grotesk)" }}
               >
