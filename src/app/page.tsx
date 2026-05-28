@@ -16,9 +16,9 @@ export default function Home() {
       <main>
         <Hero />
         <Services />
-        <TechStack />
         <Projects />
         <Process />
+        <TechStack />
         <Testimonials />
         <About />
         <Contact />
