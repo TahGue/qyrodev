@@ -39,7 +39,7 @@ export default function Services() {
               neurology
             </span>
           </div>
-          <h3 className="text-lg font-bold text-white group-hover:text-[#938ea1] transition-colors duration-300 mb-2" style={{ fontFamily: "var(--font-orbitron)" }}>
+          <h3 className="text-lg font-bold text-white group-hover:text-black transition-colors duration-300 mb-2" style={{ fontFamily: "var(--font-orbitron)" }}>
             AI Solutions
           </h3>
           <p className="text-[#c9c4d8] text-base leading-relaxed" style={{ fontFamily: "var(--font-space-grotesk)" }}>
@@ -58,7 +58,7 @@ export default function Services() {
               code
             </span>
           </div>
-          <h3 className="text-lg font-bold text-white group-hover:text-[#938ea1] transition-colors duration-300 mb-2" style={{ fontFamily: "var(--font-orbitron)" }}>
+          <h3 className="text-lg font-bold text-white group-hover:text-black transition-colors duration-300 mb-2" style={{ fontFamily: "var(--font-orbitron)" }}>
             Web Development
           </h3>
           <p className="text-[#c9c4d8] text-base leading-relaxed" style={{ fontFamily: "var(--font-space-grotesk)" }}>
@@ -77,7 +77,7 @@ export default function Services() {
               smartphone
             </span>
           </div>
-          <h3 className="text-lg font-bold text-white group-hover:text-[#938ea1] transition-colors duration-300 mb-2" style={{ fontFamily: "var(--font-orbitron)" }}>
+          <h3 className="text-lg font-bold text-white group-hover:text-black transition-colors duration-300 mb-2" style={{ fontFamily: "var(--font-orbitron)" }}>
             Mobile Apps
           </h3>
           <p className="text-[#c9c4d8] text-base leading-relaxed" style={{ fontFamily: "var(--font-space-grotesk)" }}>
@@ -91,7 +91,7 @@ export default function Services() {
             <span className="material-symbols-outlined text-[#4cd6ff] text-[48px]">sports_esports</span>
           </div>
           <div>
-            <h3 className="text-lg font-bold text-white group-hover:text-[#938ea1] transition-colors duration-300 mb-2" style={{ fontFamily: "var(--font-orbitron)" }}>
+            <h3 className="text-lg font-bold text-white group-hover:text-black transition-colors duration-300 mb-2" style={{ fontFamily: "var(--font-orbitron)" }}>
               Game Development
             </h3>
             <p className="text-[#c9c4d8] text-base leading-relaxed" style={{ fontFamily: "var(--font-space-grotesk)" }}>
@@ -111,7 +111,7 @@ export default function Services() {
               settings_suggest
             </span>
           </div>
-          <h3 className="text-lg font-bold text-white group-hover:text-[#938ea1] transition-colors duration-300 mb-2" style={{ fontFamily: "var(--font-orbitron)" }}>
+          <h3 className="text-lg font-bold text-white group-hover:text-black transition-colors duration-300 mb-2" style={{ fontFamily: "var(--font-orbitron)" }}>
             Automation
           </h3>
           <p className="text-[#c9c4d8] text-base leading-relaxed" style={{ fontFamily: "var(--font-space-grotesk)" }}>
