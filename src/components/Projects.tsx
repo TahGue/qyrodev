@@ -9,26 +9,47 @@ const projects = [
     tag: "Active Experiment",
     tagColor: "text-[#4cd6ff]",
     title: "AETHER DASHBOARD",
-    desc: "Next-gen telemetry visualization for distributed cloud networks.",
+    desc: "Next-gen telemetry visualization for distributed cloud networks with real-time anomaly detection.",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
   },
   {
     tag: "Neural Concept",
     tagColor: "text-[#cabeff]",
     title: "NORDIC NEURAL GATE",
-    desc: "Custom inference engine optimized for low-latency edge computing.",
+    desc: "Custom inference engine optimized for low-latency edge computing and on-device AI.",
     image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
   },
   {
     tag: "Web Deployment",
     tagColor: "text-[#aec6ff]",
     title: "KINETIC VESTIGE",
-    desc: "A high-performance e-commerce engine with zero-latency navigation.",
+    desc: "A high-performance e-commerce engine with zero-latency navigation and AI-driven personalization.",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+  },
+  {
+    tag: "Game Deployment",
+    tagColor: "text-[#4cd6ff]",
+    title: "VOID PROTOCOL",
+    desc: "A narrative-driven action RPG built on Unreal Engine 5 — procedural worlds, dynamic AI enemies.",
+    image: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=800&q=80",
+  },
+  {
+    tag: "Mobile App",
+    tagColor: "text-[#ffb4ab]",
+    title: "SOLACE",
+    desc: "AI-powered mental wellness app with adaptive journaling and biometric mood tracking.",
+    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80",
+  },
+  {
+    tag: "Automation",
+    tagColor: "text-[#cabeff]",
+    title: "HELIX PIPELINE",
+    desc: "End-to-end MLOps platform that automates model training, versioning, and deployment at scale.",
+    image: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=800&q=80",
   },
 ];
 
-const delayClass = ["reveal-delay-1", "reveal-delay-2", "reveal-delay-3"];
+const delayClass = ["reveal-delay-1", "reveal-delay-2", "reveal-delay-3", "reveal-delay-4", "reveal-delay-5", "reveal-delay-6"];
 
 export default function Projects() {
   const { ref, visible } = useReveal();

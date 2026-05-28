@@ -104,19 +104,50 @@ export default function Services() {
         <div className={`neon-card glass-card p-6 rounded-xl group transition-all duration-300 reveal-up reveal-delay-5 ${visible ? "is-visible" : ""}`}>
           <div className="text-[#484555] text-xs font-bold tracking-widest mb-4" style={{ fontFamily: "var(--font-space-grotesk)" }}>05</div>
           <div className="w-12 h-12 rounded-lg bg-[#ffb4ab]/10 flex items-center justify-center mb-6">
-            <span
-              className="material-symbols-outlined text-[#ffb4ab] text-[32px]"
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              settings_suggest
-            </span>
+            <span className="material-symbols-outlined text-[#ffb4ab] text-[32px]" style={{ fontVariationSettings: "'FILL' 1" }}>settings_suggest</span>
           </div>
-          <h3 className="text-lg font-bold text-white group-hover:text-black transition-colors duration-300 mb-2" style={{ fontFamily: "var(--font-orbitron)" }}>
-            Automation
-          </h3>
+          <h3 className="text-lg font-bold text-white group-hover:text-black transition-colors duration-300 mb-2" style={{ fontFamily: "var(--font-orbitron)" }}>Automation</h3>
           <p className="text-[#c9c4d8] group-hover:text-black text-base leading-relaxed transition-colors duration-300" style={{ fontFamily: "var(--font-space-grotesk)" }}>
             Seamless workflows that scale. We automate the mundane so you can create.
           </p>
+        </div>
+
+        {/* Cloud Infrastructure */}
+        <div className={`neon-card glass-card p-6 rounded-xl group transition-all duration-300 reveal-up reveal-delay-1 ${visible ? "is-visible" : ""}`}>
+          <div className="text-[#484555] text-xs font-bold tracking-widest mb-4" style={{ fontFamily: "var(--font-space-grotesk)" }}>06</div>
+          <div className="w-12 h-12 rounded-lg bg-[#4cd6ff]/10 flex items-center justify-center mb-6">
+            <span className="material-symbols-outlined text-[#4cd6ff] text-[32px]" style={{ fontVariationSettings: "'FILL' 1" }}>cloud</span>
+          </div>
+          <h3 className="text-lg font-bold text-white group-hover:text-black transition-colors duration-300 mb-2" style={{ fontFamily: "var(--font-orbitron)" }}>Cloud Infrastructure</h3>
+          <p className="text-[#c9c4d8] group-hover:text-black text-base leading-relaxed transition-colors duration-300" style={{ fontFamily: "var(--font-space-grotesk)" }}>
+            Scalable, fault-tolerant systems on AWS, GCP, and Azure — architected for zero downtime.
+          </p>
+        </div>
+
+        {/* UI/UX Design */}
+        <div className={`neon-card glass-card p-6 rounded-xl group transition-all duration-300 reveal-up reveal-delay-2 ${visible ? "is-visible" : ""}`}>
+          <div className="text-[#484555] text-xs font-bold tracking-widest mb-4" style={{ fontFamily: "var(--font-space-grotesk)" }}>07</div>
+          <div className="w-12 h-12 rounded-lg bg-[#cabeff]/10 flex items-center justify-center mb-6">
+            <span className="material-symbols-outlined text-[#cabeff] text-[32px]" style={{ fontVariationSettings: "'FILL' 1" }}>palette</span>
+          </div>
+          <h3 className="text-lg font-bold text-white group-hover:text-black transition-colors duration-300 mb-2" style={{ fontFamily: "var(--font-orbitron)" }}>UI / UX Design</h3>
+          <p className="text-[#c9c4d8] group-hover:text-black text-base leading-relaxed transition-colors duration-300" style={{ fontFamily: "var(--font-space-grotesk)" }}>
+            Interfaces that feel inevitable. From wireframe to pixel-perfect handoff — user-obsessed.
+          </p>
+        </div>
+
+        {/* Cybersecurity — wide */}
+        <div className={`neon-card glass-card md:col-span-2 p-6 rounded-xl group transition-all duration-300 flex flex-col sm:flex-row gap-6 items-center text-center sm:text-left reveal-up reveal-delay-3 ${visible ? "is-visible" : ""}`}>
+          <div className="w-24 h-24 shrink-0 rounded-full bg-[#282a30] flex items-center justify-center border border-white/10">
+            <span className="material-symbols-outlined text-[#ffb4ab] text-[48px]">security</span>
+          </div>
+          <div>
+            <div className="text-[#484555] text-xs font-bold tracking-widest mb-2" style={{ fontFamily: "var(--font-space-grotesk)" }}>08</div>
+            <h3 className="text-lg font-bold text-white group-hover:text-black transition-colors duration-300 mb-2" style={{ fontFamily: "var(--font-orbitron)" }}>Cybersecurity & Hardening</h3>
+            <p className="text-[#c9c4d8] group-hover:text-black text-base leading-relaxed transition-colors duration-300" style={{ fontFamily: "var(--font-space-grotesk)" }}>
+              Penetration testing, zero-trust architecture, and compliance auditing. We attack before the adversaries do.
+            </p>
+          </div>
         </div>
       </div>
     </section>

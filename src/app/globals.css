@@ -290,6 +290,21 @@ body {
 .reveal-delay-5 { animation-delay: 0.40s !important; }
 .reveal-delay-6 { animation-delay: 0.48s !important; }
 
+/* ── TECH STACK MARQUEE ── */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.tech-marquee {
+  animation: marquee 30s linear infinite;
+  width: max-content;
+}
+
+.tech-marquee:hover {
+  animation-play-state: paused;
+}
+
 /* ── SCANLINE OVERLAY ── */
 .scanlines::after {
   content: "";
