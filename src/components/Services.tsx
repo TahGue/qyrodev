@@ -42,7 +42,7 @@ export default function Services() {
           <h3 className="text-lg font-bold text-white group-hover:text-black transition-colors duration-300 mb-2" style={{ fontFamily: "var(--font-orbitron)" }}>
             AI Solutions
           </h3>
-          <p className="text-[#c9c4d8] text-base leading-relaxed" style={{ fontFamily: "var(--font-space-grotesk)" }}>
+          <p className="text-[#c9c4d8] group-hover:text-black text-base leading-relaxed transition-colors duration-300" style={{ fontFamily: "var(--font-space-grotesk)" }}>
             Custom LLM integrations and neural network deployments for high-scale enterprise needs.
           </p>
         </div>
@@ -61,7 +61,7 @@ export default function Services() {
           <h3 className="text-lg font-bold text-white group-hover:text-black transition-colors duration-300 mb-2" style={{ fontFamily: "var(--font-orbitron)" }}>
             Web Development
           </h3>
-          <p className="text-[#c9c4d8] text-base leading-relaxed" style={{ fontFamily: "var(--font-space-grotesk)" }}>
+          <p className="text-[#c9c4d8] group-hover:text-black text-base leading-relaxed transition-colors duration-300" style={{ fontFamily: "var(--font-space-grotesk)" }}>
             Blazing fast performance meets ethereal design. Built for the modern edge.
           </p>
         </div>
@@ -80,7 +80,7 @@ export default function Services() {
           <h3 className="text-lg font-bold text-white group-hover:text-black transition-colors duration-300 mb-2" style={{ fontFamily: "var(--font-orbitron)" }}>
             Mobile Apps
           </h3>
-          <p className="text-[#c9c4d8] text-base leading-relaxed" style={{ fontFamily: "var(--font-space-grotesk)" }}>
+          <p className="text-[#c9c4d8] group-hover:text-black text-base leading-relaxed transition-colors duration-300" style={{ fontFamily: "var(--font-space-grotesk)" }}>
             Cross-platform excellence that feels native. Engineered for high retention.
           </p>
         </div>
@@ -94,7 +94,7 @@ export default function Services() {
             <h3 className="text-lg font-bold text-white group-hover:text-black transition-colors duration-300 mb-2" style={{ fontFamily: "var(--font-orbitron)" }}>
               Game Development
             </h3>
-            <p className="text-[#c9c4d8] text-base leading-relaxed" style={{ fontFamily: "var(--font-space-grotesk)" }}>
+            <p className="text-[#c9c4d8] group-hover:text-black text-base leading-relaxed transition-colors duration-300" style={{ fontFamily: "var(--font-space-grotesk)" }}>
               Immersive 3D worlds and interactive storytelling utilizing Unreal Engine and custom shaders.
             </p>
           </div>
@@ -114,7 +114,7 @@ export default function Services() {
           <h3 className="text-lg font-bold text-white group-hover:text-black transition-colors duration-300 mb-2" style={{ fontFamily: "var(--font-orbitron)" }}>
             Automation
           </h3>
-          <p className="text-[#c9c4d8] text-base leading-relaxed" style={{ fontFamily: "var(--font-space-grotesk)" }}>
+          <p className="text-[#c9c4d8] group-hover:text-black text-base leading-relaxed transition-colors duration-300" style={{ fontFamily: "var(--font-space-grotesk)" }}>
             Seamless workflows that scale. We automate the mundane so you can create.
           </p>
         </div>
