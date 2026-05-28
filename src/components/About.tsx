@@ -11,10 +11,10 @@ export default function About() {
     <section
       id="about"
       ref={ref as React.RefObject<HTMLElement>}
-      className={`py-16 sm:py-20 max-w-[1280px] mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center bg-[#0F1117] reveal ${visible ? "is-visible" : ""}`}
+      className="py-16 sm:py-20 max-w-[1280px] mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center bg-[#0F1117]"
     >
       {/* Left — Image */}
-      <div className="relative">
+      <div className={`relative reveal-left ${visible ? "is-visible" : ""}`}>
         <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#cabeff]/20 rounded-full blur-[60px] pointer-events-none" />
         <div className="glass-card p-1 rounded-2xl relative overflow-hidden">
           <Image
@@ -28,7 +28,7 @@ export default function About() {
       </div>
 
       {/* Right — Story + Stats */}
-      <div className="space-y-6">
+      <div className={`space-y-6 reveal-right-soft ${visible ? "is-visible" : ""}`}>
         <span className="section-tag" style={{ fontFamily: "var(--font-space-grotesk)" }}>About</span>
 
         <h2

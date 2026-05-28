@@ -10,10 +10,10 @@ export default function Services() {
     <section
       id="services"
       ref={ref as React.RefObject<HTMLElement>}
-      className={`py-16 sm:py-20 max-w-[1280px] mx-auto px-4 sm:px-6 bg-[#0F1117] reveal ${visible ? "is-visible" : ""}`}
+      className="py-16 sm:py-20 max-w-[1280px] mx-auto px-4 sm:px-6 bg-[#0F1117]"
     >
       {/* Header */}
-      <div className="mb-12 text-center md:text-left space-y-3">
+      <div className={`mb-12 text-center md:text-left space-y-3 reveal-up ${visible ? "is-visible" : ""}`}>
         <span className="section-tag" style={{ fontFamily: "var(--font-space-grotesk)" }}>
           What we build
         </span>
@@ -29,7 +29,7 @@ export default function Services() {
       {/* Bento grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* AI Solutions */}
-        <div className="neon-card glass-card p-6 rounded-xl group transition-all duration-300">
+        <div className={`neon-card glass-card p-6 rounded-xl group transition-all duration-300 reveal-up reveal-delay-1 ${visible ? "is-visible" : ""}`}>
           <div className="text-[#484555] text-xs font-bold tracking-widest mb-4" style={{ fontFamily: "var(--font-space-grotesk)" }}>01</div>
           <div className="w-12 h-12 rounded-lg bg-[#cabeff]/10 flex items-center justify-center mb-6">
             <span
@@ -48,7 +48,7 @@ export default function Services() {
         </div>
 
         {/* Web Development */}
-        <div className="neon-card glass-card p-6 rounded-xl group transition-all duration-300">
+        <div className={`neon-card glass-card p-6 rounded-xl group transition-all duration-300 reveal-up reveal-delay-2 ${visible ? "is-visible" : ""}`}>
           <div className="text-[#484555] text-xs font-bold tracking-widest mb-4" style={{ fontFamily: "var(--font-space-grotesk)" }}>02</div>
           <div className="w-12 h-12 rounded-lg bg-[#4cd6ff]/10 flex items-center justify-center mb-6">
             <span
@@ -67,7 +67,7 @@ export default function Services() {
         </div>
 
         {/* Mobile Apps */}
-        <div className="neon-card glass-card p-6 rounded-xl group transition-all duration-300">
+        <div className={`neon-card glass-card p-6 rounded-xl group transition-all duration-300 reveal-up reveal-delay-3 ${visible ? "is-visible" : ""}`}>
           <div className="text-[#484555] text-xs font-bold tracking-widest mb-4" style={{ fontFamily: "var(--font-space-grotesk)" }}>03</div>
           <div className="w-12 h-12 rounded-lg bg-[#aec6ff]/10 flex items-center justify-center mb-6">
             <span
@@ -86,7 +86,7 @@ export default function Services() {
         </div>
 
         {/* Game Development — wide card */}
-        <div className="neon-card glass-card md:col-span-2 p-6 rounded-xl group transition-all duration-300 flex flex-col sm:flex-row gap-6 items-center text-center sm:text-left">
+        <div className={`neon-card glass-card md:col-span-2 p-6 rounded-xl group transition-all duration-300 flex flex-col sm:flex-row gap-6 items-center text-center sm:text-left reveal-up reveal-delay-4 ${visible ? "is-visible" : ""}`}>
           <div className="w-24 h-24 shrink-0 rounded-full bg-[#282a30] flex items-center justify-center border border-white/10">
             <span className="material-symbols-outlined text-[#4cd6ff] text-[48px]">sports_esports</span>
           </div>
@@ -101,7 +101,7 @@ export default function Services() {
         </div>
 
         {/* Automation */}
-        <div className="neon-card glass-card p-6 rounded-xl group transition-all duration-300">
+        <div className={`neon-card glass-card p-6 rounded-xl group transition-all duration-300 reveal-up reveal-delay-5 ${visible ? "is-visible" : ""}`}>
           <div className="text-[#484555] text-xs font-bold tracking-widest mb-4" style={{ fontFamily: "var(--font-space-grotesk)" }}>05</div>
           <div className="w-12 h-12 rounded-lg bg-[#ffb4ab]/10 flex items-center justify-center mb-6">
             <span

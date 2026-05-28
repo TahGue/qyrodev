@@ -1,6 +1,11 @@
+"use client";
+
+import type React from "react";
 import Image from "next/image";
+import { useReveal } from "@/hooks/useReveal";
 
 export default function Footer() {
+  const { ref, visible } = useReveal(0.05);
   const links = [
     { label: "Experiments", href: "#projects" },
     { label: "Solutions", href: "#services" },
@@ -9,7 +14,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-[#0F1117] border-t border-white/5 relative w-full">
+    <footer ref={ref as React.RefObject<HTMLElement>} className={`bg-[#0F1117] border-t border-white/5 relative w-full reveal-fade ${visible ? "is-visible" : ""}`}>
       <div className="flex flex-col md:flex-row justify-between items-center px-4 sm:px-6 py-10 sm:py-12 gap-6 max-w-[1280px] mx-auto">
         {/* Logo + copyright */}
         <div className="flex flex-col gap-2 items-center md:items-start">

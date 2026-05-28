@@ -37,11 +37,11 @@ export default function Projects() {
     <section
       id="projects"
       ref={ref as React.RefObject<HTMLElement>}
-      className={`bg-[#191b22] py-20 reveal ${visible ? "is-visible" : ""}`}
+      className="bg-[#191b22] py-20"
     >
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row justify-between sm:items-end gap-4 mb-10 sm:mb-12">
+        <div className={`flex flex-col sm:flex-row justify-between sm:items-end gap-4 mb-10 sm:mb-12 reveal-up ${visible ? "is-visible" : ""}`}>
           <div className="space-y-3">
             <span className="section-tag" style={{ fontFamily: "var(--font-space-grotesk)" }}>Selected Work</span>
             <h2
@@ -69,7 +69,7 @@ export default function Projects() {
           {projects.map((project, i) => (
             <div
               key={i}
-              className={`project-card relative group overflow-hidden rounded-xl border border-white/5 bg-[#1e1f26] reveal ${visible ? "is-visible" : ""} ${delayClass[i]}`}
+              className={`project-card relative group overflow-hidden rounded-xl border border-white/5 bg-[#1e1f26] reveal-right ${visible ? "is-visible" : ""} ${delayClass[i]}`}
             >
               <div className="card-shine" />
               <div className="aspect-video bg-[#33343b] overflow-hidden relative">

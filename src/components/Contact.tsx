@@ -12,7 +12,7 @@ export default function Contact() {
     <section
       id="contact"
       ref={ref as React.RefObject<HTMLElement>}
-      className={`py-16 sm:py-20 px-4 sm:px-6 bg-[#0F1117] reveal ${visible ? "is-visible" : ""}`}
+      className={`py-16 sm:py-20 px-4 sm:px-6 bg-[#0F1117] reveal-zoom ${visible ? "is-visible" : ""}`}
     >
       <div className="max-w-4xl mx-auto glass-card rounded-2xl p-8 sm:p-12 text-center border-t border-[#cabeff]/30 relative overflow-hidden group">
         <div className="absolute inset-0 bg-[#cabeff]/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
