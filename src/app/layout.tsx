@@ -67,7 +67,9 @@ export const metadata: Metadata = {
     images: ["/og-image.png"],
   },
   icons: {
-    icon: "/logoq.png",
+    icon: [
+      { rel: "icon", url: "/logoq.png", type: "image/png" },
+    ],
     shortcut: "/logoq.png",
     apple: "/logoq.png",
   },
