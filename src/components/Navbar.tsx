@@ -60,18 +60,12 @@ export default function Navbar() {
       <div className="flex justify-between items-center px-6 py-4 max-w-[1280px] mx-auto">
         {/* Logo */}
         <a href="#hero" onClick={(e) => handleClick(e, "#hero")} className="flex items-center gap-2 group">
-          <span
-            className="material-symbols-outlined text-[#cabeff] text-[32px] transition-transform duration-500 group-hover:rotate-90"
-            style={{ fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24" }}
-          >
-            terminal
-          </span>
           <Image
             src="/logoq.png"
             alt="QYRODEV Logo"
             width={32}
             height={32}
-            className="h-8 w-auto object-contain"
+            className="h-8 w-auto object-contain transition-transform duration-500 group-hover:rotate-90"
           />
         </a>
 
