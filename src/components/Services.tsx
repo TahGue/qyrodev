@@ -91,6 +91,7 @@ export default function Services() {
             <span className="material-symbols-outlined text-[#4cd6ff] text-[48px]">sports_esports</span>
           </div>
           <div>
+            <div className="text-[#484555] text-xs font-bold tracking-widest mb-2" style={{ fontFamily: "var(--font-space-grotesk)" }}>04</div>
             <h3 className="text-lg font-bold text-white group-hover:text-black transition-colors duration-300 mb-2" style={{ fontFamily: "var(--font-orbitron)" }}>
               Game Development
             </h3>
