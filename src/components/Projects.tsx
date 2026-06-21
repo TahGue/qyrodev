@@ -81,7 +81,7 @@ export default function Projects() {
             style={{ fontFamily: "var(--font-space-grotesk)" }}
           >
             EXPLORE ALL{" "}
-            <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+            <Image src="/logoq.png" alt="" width={18} height={18} className="w-[18px] h-[18px]" />
           </a>
         </div>
 

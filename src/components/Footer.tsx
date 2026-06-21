@@ -19,12 +19,6 @@ export default function Footer() {
         {/* Logo + copyright */}
         <div className="flex flex-col gap-2 items-center md:items-start">
           <div className="flex items-center gap-2">
-            <span
-              className="material-symbols-outlined text-[#cabeff]"
-              style={{ fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24" }}
-            >
-              terminal
-            </span>
             <Image
               src="/logoq.png"
               alt="QYRODEV Logo"

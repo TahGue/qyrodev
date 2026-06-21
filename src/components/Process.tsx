@@ -1,47 +1,42 @@
 "use client";
 
 import type React from "react";
+import Image from "next/image";
 import { useReveal } from "@/hooks/useReveal";
 
 const steps = [
   {
     number: "01",
-    icon: "search",
     color: "#cabeff",
     title: "Discovery",
     desc: "We dissect your goals, constraints, and competitive landscape. No assumptions — only first principles.",
   },
   {
     number: "02",
-    icon: "architecture",
     color: "#4cd6ff",
     title: "Architecture",
     desc: "System design that scales from MVP to millions. Every decision documented and justified.",
   },
   {
     number: "03",
-    icon: "draw",
     color: "#aec6ff",
     title: "Design",
     desc: "Interactive prototypes that feel real before a single line of code is written. Tested with users.",
   },
   {
     number: "04",
-    icon: "rocket_launch",
     color: "#ffb4ab",
     title: "Build",
     desc: "Iterative sprints with weekly demos. Full transparency — you see everything as it happens.",
   },
   {
     number: "05",
-    icon: "verified",
     color: "#cabeff",
     title: "Launch",
     desc: "Zero-downtime deployments, load tested, monitored. We stay on-call for 30 days post-launch.",
   },
   {
     number: "06",
-    icon: "autorenew",
     color: "#4cd6ff",
     title: "Evolve",
     desc: "Monthly retrospectives, performance audits, and feature velocity that compounds over time.",
@@ -94,12 +89,14 @@ export default function Process() {
                   className="w-10 h-10 rounded-lg flex items-center justify-center"
                   style={{ background: `${step.color}18` }}
                 >
-                  <span
-                    className="material-symbols-outlined text-[22px]"
-                    style={{ color: step.color, fontVariationSettings: "'FILL' 1" }}
-                  >
-                    {step.icon}
-                  </span>
+                  <Image
+                    src="/logoq.png"
+                    alt=""
+                    width={22}
+                    height={22}
+                    className="w-[22px] h-[22px]"
+                    style={{ filter: `brightness(0) saturate(100%) invert(39%) sepia(89%) saturate(423%) hue-rotate(199deg) brightness(97%) contrast(91%)` }}
+                  />
                 </div>
               </div>
 

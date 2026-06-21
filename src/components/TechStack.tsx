@@ -1,22 +1,24 @@
 "use client";
 
+import Image from "next/image";
+
 const techs = [
-  { name: "Next.js", icon: "web" },
-  { name: "React", icon: "widgets" },
-  { name: "TypeScript", icon: "code" },
-  { name: "Tailwind CSS", icon: "style" },
-  { name: "Python", icon: "terminal" },
-  { name: "PyTorch", icon: "neurology" },
-  { name: "AWS", icon: "cloud" },
-  { name: "Kubernetes", icon: "hub" },
-  { name: "PostgreSQL", icon: "storage" },
-  { name: "Docker", icon: "deployed_code" },
-  { name: "Unreal Engine", icon: "sports_esports" },
-  { name: "Figma", icon: "palette" },
-  { name: "GraphQL", icon: "api" },
-  { name: "Rust", icon: "memory" },
-  { name: "Swift", icon: "phone_iphone" },
-  { name: "Terraform", icon: "dns" },
+  { name: "Next.js" },
+  { name: "React" },
+  { name: "TypeScript" },
+  { name: "Tailwind CSS" },
+  { name: "Python" },
+  { name: "PyTorch" },
+  { name: "AWS" },
+  { name: "Kubernetes" },
+  { name: "PostgreSQL" },
+  { name: "Docker" },
+  { name: "Unreal Engine" },
+  { name: "Figma" },
+  { name: "GraphQL" },
+  { name: "Rust" },
+  { name: "Swift" },
+  { name: "Terraform" },
 ];
 
 export default function TechStack() {
@@ -44,12 +46,13 @@ export default function TechStack() {
               key={i}
               className="flex-shrink-0 flex items-center gap-3 px-5 py-3 glass-card rounded-xl border border-white/5 hover:border-[#cabeff]/30 transition-colors duration-300 group"
             >
-              <span
-                className="material-symbols-outlined text-[#cabeff] text-[20px] group-hover:text-white transition-colors duration-300"
-                style={{ fontVariationSettings: "'FILL' 1" }}
-              >
-                {tech.icon}
-              </span>
+              <Image
+                src="/logoq.png"
+                alt=""
+                width={20}
+                height={20}
+                className="w-[20px] h-[20px] group-hover:brightness-110 transition-all duration-300"
+              />
               <span
                 className="text-sm font-bold text-[#c9c4d8] group-hover:text-white transition-colors duration-300 whitespace-nowrap"
                 style={{ fontFamily: "var(--font-space-grotesk)" }}
