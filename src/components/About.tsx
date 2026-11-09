@@ -1,96 +1,57 @@
-"use client";
-
-import type React from "react";
 import Image from "next/image";
-import { useReveal } from "@/hooks/useReveal";
+import Reveal from "./Reveal";
+
+const facts = [
+  { value: "2021", label: "shipping code since" },
+  { value: "6", label: "languages: TS, Python, Dart, Java, SQL, GDScript" },
+  { value: "End-to-end", label: "from GPU models to UI to deploy" },
+];
 
 export default function About() {
-  const { ref, visible } = useReveal();
-
   return (
-    <section
-      id="about"
-      ref={ref as React.RefObject<HTMLElement>}
-      className="py-16 sm:py-20 max-w-[1280px] mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center bg-[#0F1117]"
-    >
-      {/* Left — Image */}
-      <div className={`relative reveal-left ${visible ? "is-visible" : ""}`}>
-        <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#cabeff]/20 rounded-full blur-[60px] pointer-events-none" />
-        <div className="glass-card p-1 rounded-2xl relative overflow-hidden">
-          <Image
-            src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=80"
-            alt="Nordic Precision"
-            width={800}
-            height={533}
-            className="rounded-xl grayscale hover:grayscale-0 transition-all duration-700 w-full object-cover"
-          />
-        </div>
-      </div>
-
-      {/* Right — Story + Stats */}
-      <div className={`space-y-6 reveal-right-soft ${visible ? "is-visible" : ""}`}>
-        <span className="section-tag" style={{ fontFamily: "var(--font-space-grotesk)" }}>About</span>
-
-        <h2
-          className="text-2xl sm:text-[32px] font-bold text-white leading-tight"
-          style={{ fontFamily: "var(--font-orbitron)" }}
-        >
-          Nordic Precision, Global Vision
-        </h2>
-
-        <p
-          className="text-[#c9c4d8] text-base sm:text-lg leading-relaxed"
-          style={{ fontFamily: "var(--font-space-grotesk)" }}
-        >
-          Inspired by the stoic landscapes of the North and the intricate geometric patterns of Arabic art,
-          QYRODEV was founded as an experimental workshop to push the boundaries of what&apos;s possible
-          at the intersection of AI and human experience.
-        </p>
-
-        <div className="flex flex-wrap gap-6 sm:gap-8 pt-2">
-          <div className="text-center">
-            <div
-              className="stat-number font-bold text-2xl sm:text-[32px]"
-              style={{ fontFamily: "var(--font-orbitron)" }}
-            >
-              12+
-            </div>
-            <div
-              className="text-xs text-[#c9c4d8] uppercase tracking-widest"
-              style={{ fontFamily: "var(--font-space-grotesk)" }}
-            >
-              Active Projects
-            </div>
+    <section id="about" aria-labelledby="about-title" className="bg-surface/40 py-20 sm:py-28">
+      <div className="mx-auto grid max-w-[1200px] items-center gap-12 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+        <Reveal>
+          <div className="card relative mx-auto flex aspect-square max-w-sm items-center justify-center overflow-hidden">
+            <div className="glow h-64 w-64 bg-primary/30" aria-hidden />
+            <div className="grid-bg absolute inset-0 [mask-image:none]" aria-hidden />
+            <Image src="/logoq.png" alt="QYRODEV logo" width={160} height={160} className="relative h-40 w-40 object-contain" />
           </div>
-          <div className="text-center">
-            <div
-              className="stat-number font-bold text-2xl sm:text-[32px]"
-              style={{ fontFamily: "var(--font-orbitron)" }}
-            >
-              0.4s
-            </div>
-            <div
-              className="text-xs text-[#c9c4d8] uppercase tracking-widest"
-              style={{ fontFamily: "var(--font-space-grotesk)" }}
-            >
-              Avg Load Time
-            </div>
+        </Reveal>
+
+        <Reveal delay={100}>
+          <p className="eyebrow">About</p>
+          <h2 id="about-title" className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+            Hi, I&apos;m Tahar.
+          </h2>
+          <div className="mt-6 space-y-4 text-base leading-relaxed text-muted sm:text-lg">
+            <p>
+              I&apos;m a full-stack and AI engineer based in Sweden. I started with Java and Vue, moved on to TypeScript
+              platforms for real businesses, and now build GPU-backed AI systems that run on a single machine.
+            </p>
+            <p>
+              What sets my work apart is a fixation on <span className="text-foreground">trust</span>. On one
+              engineering-report project, a free-text LLM hallucinated in roughly a third of its answers. The code-first
+              design I built in its place made zero mistakes across nearly a thousand test questions. I bring that same
+              rigour to every invoice engine, booking flow and dashboard I ship.
+            </p>
+            <p>
+              Alongside client work I study AI and machine learning and run my own research, from verified code
+              generation to agents that learn the rules of new games.
+            </p>
           </div>
-          <div className="text-center">
-            <div
-              className="stat-number font-bold text-2xl sm:text-[32px]"
-              style={{ fontFamily: "var(--font-orbitron)" }}
-            >
-              ∞
-            </div>
-            <div
-              className="text-xs text-[#c9c4d8] uppercase tracking-widest"
-              style={{ fontFamily: "var(--font-space-grotesk)" }}
-            >
-              Coffee/Loop
-            </div>
-          </div>
-        </div>
+
+          <dl className="mt-8 grid gap-6 sm:grid-cols-3">
+            {facts.map((f) => (
+              <div key={f.label} className="border-l border-primary/40 pl-4">
+                <dt className="sr-only">{f.label}</dt>
+                <dd className="text-xl font-bold text-foreground">{f.value}</dd>
+                <dd className="mt-1 text-xs text-muted">{f.label}</dd>
+              </div>
+            ))}
+          </dl>
+
+        </Reveal>
       </div>
     </section>
   );

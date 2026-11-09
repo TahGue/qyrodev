@@ -1,55 +1,41 @@
-"use client";
-
-import type React from "react";
-import { useState } from "react";
-import { useReveal } from "@/hooks/useReveal";
+import { ArrowRight, Mail } from "lucide-react";
+import { CONTACT_EMAIL, LINKEDIN_URL } from "@/content/site";
+import Reveal from "./Reveal";
 
 export default function Contact() {
-  const [sent, setSent] = useState(false);
-  const { ref, visible } = useReveal();
-
   return (
-    <section
-      id="contact"
-      ref={ref as React.RefObject<HTMLElement>}
-      className={`py-16 sm:py-20 px-4 sm:px-6 bg-[#0F1117] reveal-zoom ${visible ? "is-visible" : ""}`}
-    >
-      <div className="max-w-4xl mx-auto glass-card rounded-2xl p-8 sm:p-12 text-center border-t border-[#cabeff]/30 relative overflow-hidden group">
-        <div className="absolute inset-0 bg-[#cabeff]/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+    <section id="contact" aria-labelledby="contact-title" className="px-4 py-20 sm:px-6 sm:py-28">
+      <Reveal className="relative mx-auto max-w-[1200px] overflow-hidden rounded-3xl border border-border bg-surface px-6 py-14 text-center sm:px-12 sm:py-20">
+        <div className="glow -top-24 left-1/2 h-72 w-[36rem] -translate-x-1/2 bg-primary/30" aria-hidden />
+        <div className="relative">
+          <p className="eyebrow">Let&apos;s talk</p>
+          <h2 id="contact-title" className="mx-auto mt-4 max-w-2xl text-3xl font-bold tracking-tight sm:text-5xl">
+            Got a process that eats hours, or data you can&apos;t risk on a guessing AI?
+          </h2>
+          <p className="mx-auto mt-5 max-w-xl text-base text-muted sm:text-lg">
+            Tell me what you&apos;re trying to fix. I&apos;ll reply within one business day with an honest take on
+            whether, and how, I can help.
+          </p>
 
-        <h2
-          className="text-2xl sm:text-[32px] font-bold text-white mb-3 relative z-10"
-          style={{ fontFamily: "var(--font-orbitron)" }}
-        >
-          Ready to build the future?
-        </h2>
-        <p
-          className="text-[#c9c4d8] text-lg mb-10 relative z-10"
-          style={{ fontFamily: "var(--font-space-grotesk)" }}
-        >
-          We&apos;re currently accepting high-impact projects for Q3 2026.
-        </p>
-
-        {sent ? (
-          <div className="relative z-10">
-            <div className="text-4xl mb-3">🚀</div>
-            <p
-              className="text-[#4cd6ff] font-bold tracking-widest text-sm uppercase"
-              style={{ fontFamily: "var(--font-space-grotesk)" }}
+          <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
+            <a
+              href={`mailto:${CONTACT_EMAIL}?subject=Project%20inquiry`}
+              className="group inline-flex items-center justify-center gap-2 rounded-full bg-foreground px-7 py-4 text-sm font-semibold text-background transition-transform hover:scale-[1.02]"
             >
-              Transmission received — we&apos;ll be in touch.
-            </p>
+              <Mail size={16} aria-hidden /> {CONTACT_EMAIL}
+              <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" aria-hidden />
+            </a>
+            <a
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-full border border-border-strong px-7 py-4 text-sm font-semibold transition-colors hover:bg-surface-2"
+            >
+              Connect on LinkedIn
+            </a>
           </div>
-        ) : (
-          <button
-            onClick={() => setSent(true)}
-            className="w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 bg-white text-[#0F1117] font-bold text-sm tracking-widest uppercase rounded relative z-10 hover:scale-105 transition-transform duration-300"
-            style={{ fontFamily: "var(--font-space-grotesk)" }}
-          >
-            TRANSMIT INQUIRY
-          </button>
-        )}
-      </div>
+        </div>
+      </Reveal>
     </section>
   );
 }

@@ -1,142 +1,63 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
-
-const WORDS = ["Digital Experiences", "AI-Powered Futures", "Nordic Innovation", "Cloud-Crafted Products"];
+import { ArrowRight } from "lucide-react";
+import { CONTACT_EMAIL, proofMetrics } from "@/content/site";
+import GroundedDemo from "./GroundedDemo";
 
 export default function Hero() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [mounted, setMounted] = useState(false);
-  const [wordIndex, setWordIndex] = useState(0);
-  const [displayed, setDisplayed] = useState("");
-  const [deleting, setDeleting] = useState(false);
-
-  useEffect(() => { setMounted(true); }, []);
-
-  // Particle system
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-    const particles: HTMLDivElement[] = [];
-    for (let i = 0; i < 60; i++) {
-      const p = document.createElement("div");
-      p.className = "particle";
-      const size = Math.random() * 2 + 1;
-      p.style.width = `${size}px`;
-      p.style.height = `${size}px`;
-      p.style.left = `${Math.random() * 100}%`;
-      p.style.top = `${Math.random() * 100}%`;
-      const dur = Math.random() * 10 + 5;
-      const del = Math.random() * 10;
-      p.style.animation = `float-particle ${dur}s ease-in-out ${del}s infinite`;
-      container.appendChild(p);
-      particles.push(p);
-    }
-    return () => particles.forEach((p) => p.remove());
-  }, []);
-
-  // Typewriter
-  useEffect(() => {
-    const word = WORDS[wordIndex];
-    let timeout: ReturnType<typeof setTimeout>;
-    if (!deleting && displayed.length < word.length) {
-      timeout = setTimeout(() => setDisplayed(word.slice(0, displayed.length + 1)), 80);
-    } else if (!deleting && displayed.length === word.length) {
-      timeout = setTimeout(() => setDeleting(true), 2000);
-    } else if (deleting && displayed.length > 0) {
-      timeout = setTimeout(() => setDisplayed(word.slice(0, displayed.length - 1)), 45);
-    } else if (deleting && displayed.length === 0) {
-      setDeleting(false);
-      setWordIndex((i) => (i + 1) % WORDS.length);
-    }
-    return () => clearTimeout(timeout);
-  }, [displayed, deleting, wordIndex]);
-
   return (
-    <section id="hero" className="relative min-h-[100svh] flex flex-col items-center justify-center text-center px-4 sm:px-6 overflow-hidden pt-20">
-      {/* Background layers */}
-      <div className={`absolute inset-0 overflow-hidden z-0 pointer-events-none bg-[#0F1117]${mounted ? " dot-grid" : ""}`}>
-        <div className="aurora-blob aurora-1" />
-        <div className="aurora-blob aurora-2" />
-        {mounted && <div className="aurora-blob aurora-3" />}
-        {mounted && <div className="noise-overlay" />}
-        <div ref={containerRef} className="absolute inset-0" />
-        <div className="mountain-silhouette" />
-      </div>
+    <section id="top" className="relative overflow-hidden pt-28 pb-16 sm:pt-36 sm:pb-24">
+      <div className="grid-bg absolute inset-0" aria-hidden />
+      <div className="glow -top-40 left-1/4 h-[420px] w-[520px] bg-primary/25" aria-hidden />
+      <div className="glow top-20 right-0 h-[320px] w-[420px] bg-accent/15" aria-hidden />
 
-      {/* Content */}
-      <div className="relative z-10 max-w-3xl w-full space-y-6 sm:space-y-8">
-
-        {/* Glitch badge */}
-        <div className="flex justify-center">
-          <span className="section-tag" style={{ fontFamily: "var(--font-space-grotesk)" }}>
-            Northern Digital Precinct
-          </span>
-        </div>
-
-        {/* Static line */}
-        <p
-          className="text-xs sm:text-sm text-[#484555] tracking-[0.3em] uppercase"
-          style={{ fontFamily: "var(--font-space-grotesk)" }}
-        >
-          QYRODEV_OS v2.0 — BOOT SEQUENCE COMPLETE
-        </p>
-
-        {/* Headline with typewriter */}
+      <div className="relative mx-auto grid max-w-[1200px] items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
         <div>
-          <h1
-            className="text-[28px] sm:text-[42px] md:text-[58px] lg:text-[68px] font-black text-white leading-tight glow-text"
-            style={{ fontFamily: "var(--font-orbitron)", letterSpacing: "-0.03em" }}
-          >
-            QYRODEV
+          <p className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/70 px-3 py-1.5 font-mono text-xs text-muted">
+            <span className="pulse-dot h-2 w-2 rounded-full bg-success" aria-hidden />
+            Taking on new projects · Sweden &amp; remote
+          </p>
+
+          <h1 className="mt-6 text-4xl leading-[1.05] font-bold tracking-tight sm:text-5xl lg:text-6xl">
+            AI that tells the truth.
+            <br />
+            <span className="text-gradient">Software that runs your business.</span>
           </h1>
-          <div
-            className="text-[18px] sm:text-[26px] md:text-[36px] font-bold mt-1 typewriter-cursor"
-            style={{
-              fontFamily: "var(--font-orbitron)",
-              background: "linear-gradient(90deg, #cabeff, #4cd6ff)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-              minHeight: "1.4em",
-            }}
-          >
-            {displayed}
+
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
+            QYRODEV is the independent studio of <span className="text-foreground">Tahar Guemir</span>. I design and
+            ship grounded AI assistants, private on-prem AI and full-stack business platforms. Every answer they give
+            is backed by your data, or it isn&apos;t given.
+          </p>
+
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a
+              href={`mailto:${CONTACT_EMAIL}?subject=Discovery%20call`}
+              className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-6 py-3.5 text-sm font-semibold text-background transition-transform hover:scale-[1.02]"
+            >
+              Book a free discovery call
+              <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" aria-hidden />
+            </a>
+            <a
+              href="#work"
+              className="inline-flex items-center justify-center rounded-full border border-border-strong px-6 py-3.5 text-sm font-semibold text-foreground transition-colors hover:bg-surface-2"
+            >
+              See the work
+            </a>
           </div>
         </div>
 
-        <p
-          className="text-sm sm:text-base text-[#c9c4d8] max-w-xl mx-auto leading-relaxed"
-          style={{ fontFamily: "var(--font-space-grotesk)" }}
-        >
-          Born in the North, Crafted in the Cloud. A fusion of extreme technical precision and boundless creative enthusiasm.
-        </p>
+        <GroundedDemo />
+      </div>
 
-        {/* CTAs */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center w-full sm:w-auto">
-          <button
-            onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
-            className="btn-primary px-6 sm:px-8 py-3 sm:py-4 text-white font-bold text-xs sm:text-sm tracking-widest uppercase rounded glow-accent w-full sm:w-auto"
-            style={{ fontFamily: "var(--font-space-grotesk)" }}
-          >
-            VIEW PROJECTS
-          </button>
-          <button
-            onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-            className="btn-outline px-6 sm:px-8 py-3 sm:py-4 font-bold text-xs sm:text-sm tracking-widest uppercase rounded w-full sm:w-auto"
-            style={{ fontFamily: "var(--font-space-grotesk)" }}
-          >
-            START A PROJECT
-          </button>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="scroll-indicator pt-4 opacity-40">
-          <span className="text-[10px] tracking-widest uppercase text-[#c9c4d8]" style={{ fontFamily: "var(--font-space-grotesk)" }}>
-            scroll
-          </span>
-          <div className="w-px h-10 bg-gradient-to-b from-[#4cd6ff] to-transparent" />
-        </div>
+      <div className="relative mx-auto mt-16 max-w-[1200px] px-4 sm:mt-24 sm:px-6">
+        <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border lg:grid-cols-4">
+          {proofMetrics.map((m) => (
+            <div key={m.value} className="bg-surface p-5 sm:p-6">
+              <dt className="sr-only">{m.label}</dt>
+              <dd className="text-3xl font-bold tracking-tight text-gradient sm:text-4xl">{m.value}</dd>
+              <dd className="mt-2 text-xs leading-relaxed text-muted sm:text-sm">{m.label}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </section>
   );

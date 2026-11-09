@@ -1,134 +1,99 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import { Menu, X } from "lucide-react";
+import { CONTACT_EMAIL } from "@/content/site";
 
-const navLinks = [
-  { label: "Home", href: "#hero", section: "hero" },
-  { label: "Experiments", href: "#projects", section: "projects" },
-  { label: "Solutions", href: "#services", section: "services" },
-  { label: "Contact", href: "#contact", section: "contact" },
+const links = [
+  { label: "Products", href: "#products" },
+  { label: "Work", href: "#work" },
+  { label: "Approach", href: "#approach" },
+  { label: "About", href: "#about" },
+  { label: "FAQ", href: "#faq" },
 ];
 
 export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("hero");
+  const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => setScrolled(window.scrollY > 16);
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
-    const sections = navLinks.map((l) => l.section);
-    const observers: IntersectionObserver[] = [];
-
-    sections.forEach((id) => {
-      const el = document.getElementById(id);
-      if (!el) return;
-      const obs = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) setActiveSection(id);
-        },
-        { rootMargin: "-40% 0px -55% 0px" }
-      );
-      obs.observe(el);
-      observers.push(obs);
-    });
-
-    return () => observers.forEach((o) => o.disconnect());
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
   }, []);
-
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    const id = href.replace("#", "");
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-    setMenuOpen(false);
-  };
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-[#0F1117]/90 backdrop-blur-lg border-b border-white/10 shadow-lg shadow-black/20"
-          : "bg-transparent border-b border-transparent"
+      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+        scrolled || open ? "border-b border-border bg-background/85 backdrop-blur-lg" : "border-b border-transparent"
       }`}
     >
-      <div className="flex justify-between items-center px-6 py-4 max-w-[1280px] mx-auto">
-        {/* Logo */}
-        <a href="#hero" onClick={(e) => handleClick(e, "#hero")} className="flex items-center gap-2 group">
-          <Image
-            src="/logoq.png"
-            alt="QYRODEV Logo"
-            width={32}
-            height={32}
-            className="h-8 w-auto object-contain transition-transform duration-500 group-hover:rotate-90"
-          />
+      <nav aria-label="Main" className="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-4 sm:px-6">
+        <a href="#top" className="flex items-center gap-2.5" aria-label="QYRODEV home">
+          <Image src="/logoq.png" alt="" width={28} height={28} className="h-7 w-7 object-contain" priority />
+          <span className="font-mono text-sm font-bold tracking-[0.2em]">QYRODEV</span>
         </a>
 
-        {/* Desktop links */}
-        <div className="hidden md:flex gap-6">
-          {navLinks.map((link) => {
-            const isActive = activeSection === link.section;
-            return (
-              <a
-                key={link.label}
-                href={link.href}
-                onClick={(e) => handleClick(e, link.href)}
-                className={`relative text-sm font-bold tracking-widest uppercase pb-1 transition-colors duration-300 ${
-                  isActive ? "text-[#cabeff]" : "text-[#c9c4d8] hover:text-white"
-                }`}
-                style={{ fontFamily: "var(--font-space-grotesk)" }}
-              >
-                {link.label}
-                <span
-                  className="absolute bottom-0 left-0 h-[2px] bg-[#cabeff] rounded-full transition-all duration-300"
-                  style={{ width: isActive ? "100%" : "0%" }}
-                />
+        <ul className="hidden items-center gap-8 md:flex">
+          {links.map((l) => (
+            <li key={l.href}>
+              <a href={l.href} className="text-sm text-muted transition-colors hover:text-foreground">
+                {l.label}
               </a>
-            );
-          })}
+            </li>
+          ))}
+        </ul>
+
+        <div className="flex items-center gap-2">
+          <a
+            href={`mailto:${CONTACT_EMAIL}?subject=Discovery%20call`}
+            className="hidden rounded-full bg-foreground px-4 py-2 text-sm font-semibold text-background transition-opacity hover:opacity-90 sm:inline-flex"
+          >
+            Book a call
+          </a>
+          <button
+            type="button"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-lg text-foreground md:hidden"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? <X size={22} /> : <Menu size={22} />}
+          </button>
         </div>
+      </nav>
 
-        {/* Mobile menu button */}
-        <button
-          className="md:hidden text-[#cabeff]"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-        >
-          <span className="material-symbols-outlined text-[32px]">
-            {menuOpen ? "close" : "menu"}
-          </span>
-        </button>
-      </div>
-
-      {/* Mobile menu */}
-      <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ${
-          menuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
-        } bg-[#111319]/95 backdrop-blur-xl border-b border-white/10`}
-      >
-        <div className="px-6 pb-6 pt-2 flex flex-col gap-4">
-          {navLinks.map((link) => {
-            const isActive = activeSection === link.section;
-            return (
+      <div id="mobile-menu" hidden={!open} className="border-t border-border md:hidden">
+        <ul className="flex flex-col px-4 py-3">
+          {links.map((l) => (
+            <li key={l.href}>
               <a
-                key={link.label}
-                href={link.href}
-                onClick={(e) => handleClick(e, link.href)}
-                className={`text-sm font-bold tracking-widest uppercase py-1 transition-colors ${
-                  isActive ? "text-[#cabeff]" : "text-[#c9c4d8] hover:text-white"
-                }`}
-                style={{ fontFamily: "var(--font-space-grotesk)" }}
+                href={l.href}
+                onClick={() => setOpen(false)}
+                className="block py-3 text-base text-muted hover:text-foreground"
               >
-                {link.label}
+                {l.label}
               </a>
-            );
-          })}
-        </div>
+            </li>
+          ))}
+          <li className="pt-2 pb-1">
+            <a
+              href={`mailto:${CONTACT_EMAIL}?subject=Discovery%20call`}
+              className="flex justify-center rounded-full bg-foreground px-4 py-3 text-sm font-semibold text-background"
+            >
+              Book a call
+            </a>
+          </li>
+        </ul>
       </div>
     </header>
   );
