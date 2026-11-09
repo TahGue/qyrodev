@@ -2,9 +2,10 @@ import Image from "next/image";
 import { LINKEDIN_URL } from "@/content/site";
 
 const links = [
-  { label: "Products", href: "#products" },
-  { label: "Work", href: "#work" },
-  { label: "Approach", href: "#approach" },
+  { label: "Services", href: "#services" },
+  { label: "Who we help", href: "#who" },
+  { label: "Results", href: "#results" },
+  { label: "How we work", href: "#process" },
   { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "#contact" },
 ];
@@ -12,10 +13,10 @@ const links = [
 export default function Footer() {
   return (
     <footer className="border-t border-border">
-      <div className="mx-auto flex max-w-[1200px] flex-col items-center justify-between gap-6 px-4 py-10 sm:px-6 md:flex-row">
+      <div className="mx-auto flex max-w-[75rem] flex-col items-center justify-between gap-6 px-4 py-10 sm:px-6 md:flex-row">
         <div className="flex items-center gap-3">
           <Image src="/logoq.png" alt="" width={24} height={24} className="h-6 w-6 object-contain" />
-          <p className="text-xs text-subtle">© {new Date().getFullYear()} QYRODEV · Tahar Guemir · Sweden</p>
+          <p className="text-xs text-subtle">© {new Date().getFullYear()} QYRODEV · Sweden</p>
         </div>
 
         <nav aria-label="Footer">

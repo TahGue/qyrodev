@@ -6,9 +6,9 @@ const grotesk = Space_Grotesk({ variable: "--font-grotesk", subsets: ["latin"] }
 const jetbrains = JetBrains_Mono({ variable: "--font-jetbrains", subsets: ["latin"] });
 
 const BASE_URL = "https://qyrodev.com";
-const TITLE = "QYRODEV | Grounded AI & business software, built in Sweden";
+const TITLE = "QYRODEV | Software that helps your business grow";
 const DESCRIPTION =
-  "QYRODEV is the independent studio of Tahar Guemir. Grounded AI assistants that never guess, private on-prem AI, and full-stack business platforms for Nordic companies.";
+  "QYRODEV is a Swedish team of experienced developers, UI/UX designers and growth strategists. We build grounded AI, web, mobile and desktop apps, and help you grow them.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),

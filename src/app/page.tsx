@@ -1,9 +1,9 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Products from "@/components/Products";
-import Work from "@/components/Work";
-import Approach from "@/components/Approach";
-import About from "@/components/About";
+import Services from "@/components/Services";
+import Segments from "@/components/Segments";
+import Results from "@/components/Results";
+import HowWeWork from "@/components/HowWeWork";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <>
       <a
-        href="#products"
+        href="#services"
         className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:rounded-lg focus:bg-foreground focus:px-4 focus:py-2 focus:text-background"
       >
         Skip to content
@@ -20,10 +20,10 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <Products />
-        <Work />
-        <Approach />
-        <About />
+        <Services />
+        <Segments />
+        <Results />
+        <HowWeWork />
         <FAQ />
         <Contact />
       </main>

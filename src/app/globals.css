@@ -145,3 +145,23 @@ body {
   .animate-fade-in-up, .caret::after, .pulse-dot { animation: none; }
   .card-hover:hover { transform: none; }
 }
+
+/* ── Responsive scaling ────────────────────────────────────── */
+/* Large / high-res monitors: scale the whole rem-based layout up so it doesn't look tiny. */
+@media (min-width: 1800px) { html { font-size: 112.5%; } }
+@media (min-width: 2400px) { html { font-size: 131.25%; } }
+@media (min-width: 3200px) { html { font-size: 162.5%; } }
+
+/* Very narrow phones (≤ 360px): tighten the hero headline. */
+@media (max-width: 360px) {
+  h1 { font-size: 2rem; }
+}
+
+/* Landscape phones / short viewports: less vertical padding in the hero. */
+@media (max-height: 500px) and (orientation: landscape) {
+  #top { padding-top: 5.5rem; }
+}
+
+/* Swipe rows on phones: hide the scrollbar but keep scrolling. */
+.snap-x { scrollbar-width: none; }
+.snap-x::-webkit-scrollbar { display: none; }

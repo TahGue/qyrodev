@@ -3,13 +3,13 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
-import { CONTACT_EMAIL } from "@/content/site";
+import { CALL_HREF } from "@/content/site";
 
 const links = [
-  { label: "Products", href: "#products" },
-  { label: "Work", href: "#work" },
-  { label: "Approach", href: "#approach" },
-  { label: "About", href: "#about" },
+  { label: "Services", href: "#services" },
+  { label: "Who we help", href: "#who" },
+  { label: "Results", href: "#results" },
+  { label: "How we work", href: "#process" },
   { label: "FAQ", href: "#faq" },
 ];
 
@@ -36,13 +36,13 @@ export default function Navbar() {
         scrolled || open ? "border-b border-border bg-background/85 backdrop-blur-lg" : "border-b border-transparent"
       }`}
     >
-      <nav aria-label="Main" className="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-4 sm:px-6">
+      <nav aria-label="Main" className="mx-auto flex h-16 max-w-[75rem] items-center justify-between px-4 sm:px-6">
         <a href="#top" className="flex items-center gap-2.5" aria-label="QYRODEV home">
           <Image src="/logoq.png" alt="" width={28} height={28} className="h-7 w-7 object-contain" priority />
           <span className="font-mono text-sm font-bold tracking-[0.2em]">QYRODEV</span>
         </a>
 
-        <ul className="hidden items-center gap-8 md:flex">
+        <ul className="hidden items-center gap-7 lg:flex">
           {links.map((l) => (
             <li key={l.href}>
               <a href={l.href} className="text-sm text-muted transition-colors hover:text-foreground">
@@ -54,14 +54,14 @@ export default function Navbar() {
 
         <div className="flex items-center gap-2">
           <a
-            href={`mailto:${CONTACT_EMAIL}?subject=Discovery%20call`}
+            href={CALL_HREF}
             className="hidden rounded-full bg-foreground px-4 py-2 text-sm font-semibold text-background transition-opacity hover:opacity-90 sm:inline-flex"
           >
             Book a call
           </a>
           <button
             type="button"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-lg text-foreground md:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-lg text-foreground lg:hidden"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             aria-controls="mobile-menu"
@@ -72,7 +72,7 @@ export default function Navbar() {
         </div>
       </nav>
 
-      <div id="mobile-menu" hidden={!open} className="border-t border-border md:hidden">
+      <div id="mobile-menu" hidden={!open} className="border-t border-border lg:hidden">
         <ul className="flex flex-col px-4 py-3">
           {links.map((l) => (
             <li key={l.href}>
@@ -87,7 +87,7 @@ export default function Navbar() {
           ))}
           <li className="pt-2 pb-1">
             <a
-              href={`mailto:${CONTACT_EMAIL}?subject=Discovery%20call`}
+              href={CALL_HREF}
               className="flex justify-center rounded-full bg-foreground px-4 py-3 text-sm font-semibold text-background"
             >
               Book a call

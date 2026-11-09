@@ -4,10 +4,10 @@ import Section from "./Section";
 
 export default function FAQ() {
   return (
-    <Section id="faq" eyebrow="FAQ" title="Questions people ask before we start">
-      <div className="max-w-3xl divide-y divide-border rounded-2xl border border-border bg-surface">
+    <Section id="faq" eyebrow="FAQ" title="Quick answers">
+      <div className="grid items-start gap-3 md:grid-cols-2 md:gap-4">
         {faqs.map((f) => (
-          <details key={f.q} className="group px-5 sm:px-6">
+          <details key={f.q} className="group rounded-2xl border border-border bg-surface px-5 transition-colors open:border-primary/40 sm:px-6">
             <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 py-5 font-semibold [&::-webkit-details-marker]:hidden">
               {f.q}
               <Plus
