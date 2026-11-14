@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     siteName: "QYRODEV",
     title: TITLE,
     description: DESCRIPTION,
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "QYRODEV: AI you can trust" }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "QYRODEV: Born in the North, Crafted in the Cloud" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -42,12 +42,16 @@ export const metadata: Metadata = {
     creator: "@qyrodev",
     title: TITLE,
     description: DESCRIPTION,
-    images: ["/og-image.png"],
+    images: ["/og-image.jpg"],
   },
   icons: {
-    icon: [{ rel: "icon", url: "/logoq.png", type: "image/png" }],
-    shortcut: "/logoq.png",
-    apple: "/logoq.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+      { url: "/logo-mark.png", type: "image/png", sizes: "512x512" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
   manifest: "/site.webmanifest",
 };

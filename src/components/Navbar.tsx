@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { CALL_HREF } from "@/content/site";
+import LogoMark from "./LogoMark";
 
 const links = [
   { label: "Services", href: "#services" },
@@ -38,7 +38,7 @@ export default function Navbar() {
     >
       <nav aria-label="Main" className="mx-auto flex h-16 max-w-[75rem] items-center justify-between px-4 sm:px-6">
         <a href="#top" className="flex items-center gap-2.5" aria-label="QYRODEV home">
-          <Image src="/logoq.png" alt="" width={28} height={28} className="h-7 w-7 object-contain" priority />
+          <LogoMark size={30} priority />
           <span className="font-mono text-sm font-bold tracking-[0.2em]">QYRODEV</span>
         </a>
 

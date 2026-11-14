@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# design source drops for scripts/build-brand-assets.py (large; regenerate public/ assets instead)
+/logov2.jpeg
+/qyrodev-logo.gif

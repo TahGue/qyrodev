@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { LINKEDIN_URL } from "@/content/site";
+import LogoMark from "./LogoMark";
 
 const links = [
   { label: "Services", href: "#services" },
@@ -15,7 +15,7 @@ export default function Footer() {
     <footer className="border-t border-border">
       <div className="mx-auto flex max-w-[75rem] flex-col items-center justify-between gap-6 px-4 py-10 sm:px-6 md:flex-row">
         <div className="flex items-center gap-3">
-          <Image src="/logoq.png" alt="" width={24} height={24} className="h-6 w-6 object-contain" />
+          <LogoMark size={26} />
           <p className="text-xs text-subtle">© {new Date().getFullYear()} QYRODEV · Sweden</p>
         </div>
 

@@ -5,6 +5,9 @@ export const CONTACT_EMAIL = "hello@qyrodev.com"; // TODO: confirm this inbox ex
 export const LINKEDIN_URL = "https://linkedin.com/company/qyrodev";
 export const CALL_HREF = `mailto:${CONTACT_EMAIL}?subject=Free%2030-minute%20call`;
 
+/** Line shown under the animated lockup in the brand band. */
+export const BRAND_TAGLINE = "Born in the North, Crafted in the Cloud.";
+
 export const proofMetrics = [
   { value: "100+", label: "projects built since 2021" },
   { value: "5", label: "disciplines in one team, from code to marketing" },
