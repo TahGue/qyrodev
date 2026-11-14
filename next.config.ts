@@ -1,6 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  poweredByHeader: false,
+  async redirects() {
+    return [
+      // Asset moved to the brand mark in the logo refresh.
+      { source: "/logoq.png", destination: "/logo-mark.png", permanent: true },
+    ];
+  },
   async headers() {
     return [
       {

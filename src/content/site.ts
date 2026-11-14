@@ -1,13 +1,33 @@
-// All landing-page copy lives here so it can be edited without touching layout code.
-// Project descriptions are deliberately generic: no client names, product names or code links.
+// Company-wide copy and configuration. Anything a search engine, a visitor or a
+// future edit touches lives here so pages stay purely presentational.
+
+export const SITE = {
+  name: "QYRODEV",
+  legalName: "QYRODEV",
+  url: "https://www.qyrodev.com",
+  tagline: "Built with intelligence. Engineered for impact.",
+  alternateTagline: "Engineering the software. Intelligence behind the business.",
+  location: "Sweden",
+  founded: 2021,
+  description:
+    "QYRODEV is a Swedish software engineering studio. We design and build custom software, intelligent AI systems and digital products that solve real business problems.",
+  shortDescription: "Software engineering, applied AI and digital products, built in Sweden.",
+} as const;
 
 export const CONTACT_EMAIL = "hello@qyrodev.com"; // TODO: confirm this inbox exists
 export const LINKEDIN_URL = "https://linkedin.com/company/qyrodev";
+export const GITHUB_URL = "https://github.com/TahGue";
+export const CONTACT_HREF = "/contact";
 export const CALL_HREF = `mailto:${CONTACT_EMAIL}?subject=Free%2030-minute%20call`;
 
-/** Line shown under the animated lockup in the brand band. */
-export const BRAND_TAGLINE = "Born in the North, Crafted in the Cloud.";
+export const NAV = [
+  { label: "Services", href: "/services" },
+  { label: "Work", href: "/work" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
+] as const;
 
+/** Headline proof points. Never extend these without a real, verifiable basis. */
 export const proofMetrics = [
   { value: "100+", label: "projects built since 2021" },
   { value: "5", label: "disciplines in one team, from code to marketing" },
@@ -15,146 +35,68 @@ export const proofMetrics = [
   { value: "27", label: "languages handled by our voice AI" },
 ];
 
-export type ServiceIcon = "rocket" | "workflow" | "shield" | "growth";
-
-export const services: { icon: ServiceIcon; title: string; pitch: string; points: string[] }[] = [
+/** Engineering principles shown on the homepage and the about page. */
+export const principles = [
   {
-    icon: "rocket",
-    title: "Launch your digital product",
-    pitch: "Web platforms and mobile and desktop apps, designed and built from start to finish.",
-    points: ["UI/UX design & prototypes", "Web, iOS, Android & desktop", "Payments, booking & multiple languages"],
+    title: "You own everything",
+    body: "Full source code, documentation and deployment setup are handed to you. No proprietary lock-in, no hostage code.",
   },
   {
-    icon: "workflow",
-    title: "Automate your operations",
-    pitch: "Replace spreadsheets and manual work with one system your team will actually use.",
-    points: ["Customers, quotes & work orders", "Invoicing & Swedish bookkeeping", "Live dashboards & KPIs"],
+    title: "No black boxes",
+    body: "Architecture, trade-offs and risks are explained in plain language. You decide with evidence, not marketing.",
   },
   {
-    icon: "shield",
-    title: "Put AI to work, safely",
-    pitch: "Assistants that answer from your own data or say they don't know. They can run entirely on your own servers.",
-    points: ["Chat over documents & reports", "Voice & email assistants", "Private, GDPR-friendly setups"],
+    title: "Security and privacy by design",
+    body: "Least privilege, encrypted transport, minimal data collection and audit trails from the first commit.",
   },
   {
-    icon: "growth",
-    title: "Grow your reach",
-    pitch: "Strategy and marketing that turn what we build into paying customers.",
-    points: ["Positioning & go-to-market", "SEO & launch campaigns", "Pricing & growth advice"],
-  },
-];
-
-export type Size = "small" | "mid" | "large";
-
-export const segments: { size: Size; label: string; headline: string; points: string[] }[] = [
-  {
-    size: "small",
-    label: "Small businesses",
-    headline: "Get found online and win more customers.",
-    points: [
-      "A professional website with booking & payments",
-      "Local SEO and Google reviews",
-      "A simple admin panel you run yourself",
-    ],
+    title: "Open source where it fits",
+    body: "We reach for proven open-source foundations before inventing something new, so you are never stuck with a vendor.",
   },
   {
-    size: "mid",
-    label: "Growing & mid-size companies",
-    headline: "Stop running the business on spreadsheets.",
-    points: [
-      "Custom systems for sales, operations & finance",
-      "Automation of repetitive manual work",
-      "Integrations with the tools you already use",
-    ],
+    title: "Private and self-hosted AI",
+    body: "When data is sensitive, models run on your own infrastructure. Cloud models only where they are the right call.",
   },
   {
-    size: "large",
-    label: "Large organisations",
-    headline: "AI and systems your IT and compliance teams can trust.",
-    points: [
-      "AI with measured accuracy and audit trails",
-      "Private, on-prem or EU-hosted deployment",
-      "Tested, documented handover to your team",
-    ],
+    title: "Maintainable by your team",
+    body: "Readable code, tests and documentation so your team can take the system over whenever you choose.",
   },
 ];
 
-// Case studies: anonymised, but every claim reflects a real delivered system.
-export const results: {
-  size: Size;
-  sizeLabel: string;
-  sector: string;
-  title: string;
-  challenge: string;
-  built: string;
-  gains: string[];
-  metric: string;
-}[] = [
+export const process = [
   {
-    size: "small",
-    sizeLabel: "Small business",
-    sector: "Retail & repairs",
-    title: "From walk-ins to found online",
-    challenge: "A local repair shop needed to be found online and stop managing its catalogue and repairs by hand.",
-    built: "A local-SEO website with live reviews, point-of-sale sync and a repair-ticket queue.",
-    gains: [
-      "Shows up in local searches, with live Google reviews",
-      "Shop catalogue syncs with the till automatically",
-      "Every repair tracked in one queue, with a daily KPI overview",
-    ],
-    metric: "Website + POS sync + repair queue",
+    n: "01",
+    title: "Discovery",
+    body: "Understand the business problem, the people who use the software and what success actually means.",
   },
   {
-    size: "mid",
-    sizeLabel: "Mid-size company",
-    sector: "Field service",
-    title: "From spreadsheets to one system",
-    challenge: "A growing service company kept its customers, visits, quotes and work orders in separate spreadsheets.",
-    built: "An operations platform covering customers, site visits, quotes, work orders, inventory and contracts.",
-    gains: [
-      "One place for the whole job, from quote to invoice",
-      "Compliance documents stored securely and easy to find",
-      "Service contracts tracked so renewals aren't missed",
-    ],
-    metric: "Covered by unit and end-to-end tests",
+    n: "02",
+    title: "Architecture",
+    body: "A clear technical plan: data model, integrations, deployment and the trade-offs behind each choice.",
   },
   {
-    size: "mid",
-    sizeLabel: "Growing companies",
-    sector: "Finance",
-    title: "Invoicing & bookkeeping in one place",
-    challenge: "Swedish SMEs juggle separate tools for invoicing, bookkeeping and payroll, and still need to follow Swedish rules.",
-    built: "A cloud platform for invoicing, double-entry bookkeeping, payroll and year-end close.",
-    gains: [
-      "One system instead of three or four tools",
-      "Compliant by design: BAS, SIE 4, Peppol e-invoicing",
-      "Accountants work directly in the same system",
-    ],
-    metric: "BAS · SIE 4 · Peppol · K2",
+    n: "03",
+    title: "Engineering",
+    body: "Weekly demos of working software. No status reports that hide progress — you see the build.",
   },
   {
-    size: "large",
-    sizeLabel: "Large organisation",
-    sector: "Energy",
-    title: "An AI assistant engineers can trust",
-    challenge: "Engineering teams spent a lot of time writing planning reports, and general-purpose AI chatbots got the numbers wrong.",
-    built: "An assistant that writes reports from real calculations and answers questions only when the data backs it up.",
-    gains: [
-      "Planning reports generated straight from source calculations",
-      "Answers come with evidence, or a clear “not in the data”",
-      "Accuracy measured before go-live",
-    ],
-    metric: "0 wrong answers across 976 test questions",
+    n: "04",
+    title: "Validation",
+    body: "Tests, performance work and security review, including measured accuracy for AI features.",
+  },
+  {
+    n: "05",
+    title: "Deployment",
+    body: "Production release with monitoring, documentation and a handover your team can operate.",
+  },
+  {
+    n: "06",
+    title: "Evolution",
+    body: "Improve, measure and extend the product as the business and its data change.",
   },
 ];
 
-export const steps = [
-  { n: "01", title: "Free call", body: "30 minutes on your goals and where software can help." },
-  { n: "02", title: "Plan & prototype", body: "A clear scope and a clickable prototype before the big spend." },
-  { n: "03", title: "Build", body: "Weekly demos of working software, not status reports." },
-  { n: "04", title: "Launch & grow", body: "Go live, then market, measure and improve." },
-];
-
+/** Roles that make up the team. Used as a factual list, not a testimonial. */
 export const team = [
   "Backend engineers",
   "Frontend engineers",
@@ -166,7 +108,7 @@ export const team = [
 export const faqs = [
   {
     q: "Who will we work with?",
-    a: "A small, senior team of developers and designers, with our marketing strategist and growth advisor joining when you need them. You get one dedicated contact and talk directly to the people building your product.",
+    a: "A small, senior team of developers and designers, with our marketing strategist and growth advisor joining when you need them. You get one dedicated contact and you talk directly to the people building your product.",
   },
   {
     q: "We don't need AI. Can you still help?",
@@ -174,10 +116,28 @@ export const faqs = [
   },
   {
     q: "Can you help us grow after launch?",
-    a: "Yes. That's why marketing and growth advice are part of the team. We help with positioning, launch campaigns, SEO, pricing and deciding what to build next.",
+    a: "Yes. Marketing and growth advice are part of the team. We help with positioning, launch campaigns, SEO, pricing and deciding what to build next.",
   },
   {
     q: "Who owns the code?",
-    a: "You do. You get the full source code, documentation and deployment setup, and you're free to take it in-house at any time.",
+    a: "You do. You get the full source code, documentation and deployment setup, and you are free to take it in-house at any time.",
   },
+  {
+    q: "How do we get started?",
+    a: "A 30-minute call about your goals and where software can help, followed by a short written scope. If it is not a fit, we say so and point you in a better direction.",
+  },
+  {
+    q: "How do you handle data and privacy?",
+    a: "We collect the minimum needed, keep data in the EU where required and can run AI entirely on your own servers. Access is limited, logged and documented as part of the delivery.",
+  },
+];
+
+export const socials = [
+  { label: "LinkedIn", href: LINKEDIN_URL },
+  { label: "GitHub", href: GITHUB_URL },
+];
+
+export const legalLinks = [
+  { label: "Privacy", href: "/privacy" },
+  { label: "Contact", href: "/contact" },
 ];

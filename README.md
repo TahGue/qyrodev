@@ -1,22 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# QYRODEV
 
-## Getting Started
+Website for QYRODEV, an independent software engineering studio in Sweden. Next.js App Router,
+TypeScript, Tailwind CSS v4, statically rendered and deployed on Vercel from `main`.
 
-First, run the development server:
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build
+npm run lint     # eslint
+npx tsc --noEmit # type check
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Site structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Route | Source |
+| --- | --- |
+| `/` | `src/app/page.tsx` |
+| `/services` | `src/app/services/page.tsx` |
+| `/services/[slug]` | `src/app/services/[slug]/page.tsx` (four services from `src/content/services.ts`) |
+| `/work` | `src/app/work/page.tsx` |
+| `/work/[slug]` | `src/app/work/[slug]/page.tsx` (four case studies from `src/content/work.ts`) |
+| `/about` | `src/app/about/page.tsx` |
+| `/contact` | `src/app/contact/page.tsx` |
+| `/privacy` | `src/app/privacy/page.tsx` |
+| `/sitemap.xml`, `/robots.txt` | `src/app/sitemap.ts`, `src/app/robots.ts` |
+
+All copy lives in `src/content/` (`site.ts`, `services.ts`, `work.ts`, `tech.ts`, `audiences.ts`,
+`seo.ts`). Components are in `src/components/` and share the design tokens in
+`src/app/globals.css`.
+
+Pages are static: `generateStaticParams` pre-renders every service and case study, and the only
+client-side JavaScript is the navigation, scroll reveals, the animated brand lockup and the
+contact form.
+
+### Contact form
+
+The form validates on the client and composes a `mailto:` message, so there is no backend, no
+database and no secret to manage. Submissions arrive in the normal inbox for `hello@qyrodev.com`.
+If a form backend is added later, replace `buildMailto` in `src/components/ContactForm.tsx` with
+a `fetch` to an API route.
+
+### Metadata and SEO
+
+Each page uses `pageMetadata()` from `src/content/seo.ts` for title, description, canonical URL
+and Open Graph/Twitter data. `src/app/sitemap.ts` lists every public route, `robots.txt` allows
+crawling, and JSON-LD (Organization, WebSite, Service, FAQPage, AboutPage, CreativeWork) is
+rendered per page. `/privacy` is `noindex` and excluded from the sitemap.
+
+Fragments from the old single-page site are remapped by `src/components/LegacyAnchors.tsx`
+(`#who` → `/services`, `#faq`/`#contact` → `/contact`, `#results` → the work section). The old
+`/logoq.png` asset permanently redirects to the new mark in `next.config.ts`.
 
 ## Brand assets
 
@@ -28,16 +63,16 @@ The logo lives in `public/` and is generated from the design source drops:
 | `qyrodev-logo.gif` – animated lockup | `logo-animation.webm` / `.mp4` + `logo-poster.webp` |
 
 Both sources sit on their own dark canvas, so the build script normalises that canvas to the
-site background (`#0a0b10`) and keys it out for the transparent mark. Re-run after replacing a
-source file:
+site background (`#08090c`) and keys it out for the transparent mark. Re-run after replacing a
+source file (and after changing `--background`):
 
 ```bash
 python3 scripts/build-brand-assets.py   # needs Pillow, numpy and ffmpeg
 ```
 
-The animation is rendered by `src/components/AnimatedLogo.tsx` (inside the brand band after the
-hero). It plays once when it scrolls into view and then rests on the poster frame; visitors who
-prefer reduced motion get the still image.
+The animation is rendered by `src/components/AnimatedLogo.tsx` in the closing call to action,
+directly on the page background so no card edge shows. It plays once when it scrolls into view
+and then rests on the poster frame; visitors who prefer reduced motion get the still image.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 

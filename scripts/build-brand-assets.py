@@ -19,7 +19,7 @@ logo-animation.mp4       animated lockup, H.264 (Safari fallback)
 logo-poster.webp         still frame used as poster + reduced-motion fallback
 
 Both the stills and the animation get their background normalised to the site
-background (#0a0b10) so the lockup sits on the page without a visible box.
+background (#08090c) so the lockup sits on the page without a visible box.
 
 Requirements: Python 3 with Pillow + numpy, and ffmpeg on PATH.
 
@@ -38,7 +38,7 @@ from PIL import Image, ImageFilter
 
 ROOT = Path(__file__).resolve().parent.parent
 PUBLIC = ROOT / "public"
-SITE_BG = (10, 11, 16)  # --background in src/app/globals.css (#0a0b10)
+SITE_BG = (8, 9, 12)  # --background in src/app/globals.css (#08090c)
 
 LOCKUP_JPEG = ROOT / "logov2.jpeg"
 LOCKUP_GIF = ROOT / "qyrodev-logo.gif"

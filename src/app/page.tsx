@@ -1,35 +1,31 @@
-import Navbar from "@/components/Navbar";
+import type { Metadata } from "next";
+import FinalCTA from "@/components/FinalCTA";
 import Hero from "@/components/Hero";
-import BrandShowcase from "@/components/BrandShowcase";
-import Services from "@/components/Services";
-import Segments from "@/components/Segments";
-import Results from "@/components/Results";
-import HowWeWork from "@/components/HowWeWork";
-import FAQ from "@/components/FAQ";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+import LegacyAnchors from "@/components/LegacyAnchors";
+import Philosophy from "@/components/Philosophy";
+import Process from "@/components/Process";
+import SelectedWork from "@/components/SelectedWork";
+import ServicePillars from "@/components/ServicePillars";
+import TechStack from "@/components/TechStack";
+import { SITE } from "@/content/site";
+
+export const metadata: Metadata = {
+  title: { absolute: `${SITE.name} — Engineering the software. Intelligence behind the business.` },
+  description: SITE.description,
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
   return (
     <>
-      <a
-        href="#services"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:rounded-lg focus:bg-foreground focus:px-4 focus:py-2 focus:text-background"
-      >
-        Skip to content
-      </a>
-      <Navbar />
-      <main>
-        <Hero />
-        <BrandShowcase />
-        <Services />
-        <Segments />
-        <Results />
-        <HowWeWork />
-        <FAQ />
-        <Contact />
-      </main>
-      <Footer />
+      <LegacyAnchors />
+      <Hero />
+      <ServicePillars />
+      <SelectedWork />
+      <TechStack />
+      <Philosophy />
+      <Process />
+      <FinalCTA />
     </>
   );
 }
