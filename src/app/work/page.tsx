@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
 import Section from "@/components/Section";
 import FinalCTA from "@/components/FinalCTA";
@@ -31,7 +32,7 @@ export default function WorkPage() {
       >
         <div className="grid gap-4 md:grid-cols-2">
           {caseStudies.map((study, i) => (
-            <Reveal key={study.slug} delay={(i % 2) * 60} className="h-full">
+            <Reveal key={study.slug} delay={(i % 2) * 60} className="h-full min-w-0">
               <CaseStudyCard study={study} />
             </Reveal>
           ))}
@@ -53,10 +54,32 @@ export default function WorkPage() {
             If a case study is close to your problem, ask on the call: we can usually walk through more detail under an
             NDA than we can publish.
           </p>
+          <p>
+            <span className="text-foreground">Visual evidence.</span> We do not publish mock-ups dressed up as client
+            software. Screenshots and screen recordings are shared under NDA where the client allows it; the pages here
+            publish the architecture, the stack and the engineering decisions instead.{" "}
+            <Link href="/about#ai-evaluation" className="text-link">
+              The AI accuracy figure has its own methodology page.
+            </Link>
+          </p>
+          <p>
+            <span className="text-foreground">References.</span> Client references are available on request once an
+            engagement reaches the point where they are relevant.
+          </p>
         </div>
       </Section>
 
       <FinalCTA showLogo={false} />
+
+      <div className="container-x pb-6">
+        <p className="text-sm text-muted">
+          Want to see how a system like these would work for you?{" "}
+          <Link href="/contact" className="text-link">
+            Start a conversation
+          </Link>
+          .
+        </p>
+      </div>
     </>
   );
 }

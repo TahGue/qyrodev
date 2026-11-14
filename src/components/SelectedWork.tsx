@@ -15,7 +15,7 @@ export default function SelectedWork({ limit = 3 }: { limit?: number }) {
     >
       <div className="grid gap-4 md:grid-cols-3">
         {caseStudies.slice(0, limit).map((study, i) => (
-          <Reveal key={study.slug} delay={i * 60} className="h-full">
+          <Reveal key={study.slug} delay={i * 60} className="h-full min-w-0">
             <CaseStudyCard study={study} />
           </Reveal>
         ))}

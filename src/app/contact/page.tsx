@@ -5,7 +5,7 @@ import PageHeader from "@/components/PageHeader";
 import ContactForm from "@/components/ContactForm";
 import FAQ from "@/components/FAQ";
 import JsonLd from "@/components/JsonLd";
-import { CONTACT_EMAIL, GITHUB_URL, LINKEDIN_URL, faqs } from "@/content/site";
+import { BOOKING_URL, CONTACT_EMAIL, GITHUB_URL, LINKEDIN_URL, faqs } from "@/content/site";
 import { pageMetadata } from "@/content/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -112,6 +112,18 @@ export default function ContactPage() {
                 ))}
               </ol>
             </div>
+
+            {BOOKING_URL && (
+              <div className="card p-5">
+                <h2 className="font-mono text-[0.6875rem] tracking-[0.16em] text-subtle uppercase">Prefer a calendar?</h2>
+                <p className="mt-2 text-xs leading-relaxed text-muted">
+                  Pick a slot for a 30-minute call instead of writing first.
+                </p>
+                <a href={BOOKING_URL} className="btn btn-secondary mt-3 w-full" target="_blank" rel="noopener noreferrer">
+                  Book a 30-minute call
+                </a>
+              </div>
+            )}
 
             <p className="px-1 text-xs leading-relaxed text-subtle">
               How we handle your details is described in the{" "}

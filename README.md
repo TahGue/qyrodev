@@ -42,6 +42,23 @@ database and no secret to manage. Submissions arrive in the normal inbox for `he
 If a form backend is added later, replace `buildMailto` in `src/components/ContactForm.tsx` with
 a `fetch` to an API route.
 
+### Booking links
+
+Set `NEXT_PUBLIC_BOOKING_URL` (Cal.com, Calendly, Cal.eu, …) in the hosting environment to point
+every "book a call" call to action at a scheduler. Left unset, those CTAs fall back to the
+contact form, so no page ever links to a booking page that does not exist.
+
+### Claims and evidence rules
+
+- Case studies never include mock-ups presented as client software. Add real screenshots to
+  `media` in `src/content/work.ts` only after the client has cleared them; the page renders
+  them automatically, and links to the architecture diagram until then.
+- The AI accuracy figure lives in `src/content/site.ts` (`proofMetrics`, `aiEvaluation`) and the
+  methodology section on `/about#ai-evaluation`. Keep the wording scoped to the evaluated test
+  set and set `links.aiEvaluation` on the case study that quotes it.
+- Regulatory wording (BAS, SIE 4, Peppol, K2) is scoped with `scopeNote` on the finance case
+  study and must match what the delivery actually implements.
+
 ### Metadata and SEO
 
 Each page uses `pageMetadata()` from `src/content/seo.ts` for title, description, canonical URL

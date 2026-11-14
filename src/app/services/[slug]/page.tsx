@@ -9,7 +9,7 @@ import JsonLd from "@/components/JsonLd";
 import CaseStudyCard from "@/components/CaseStudyCard";
 import GroundedDemo from "@/components/GroundedDemo";
 import Reveal from "@/components/Reveal";
-import { process, SITE } from "@/content/site";
+import { BOOKING_HREF, deliveryProcess, SITE } from "@/content/site";
 import { pageMetadata } from "@/content/seo";
 import { serviceBySlug, services } from "@/content/services";
 import { caseStudiesByService } from "@/content/work";
@@ -26,8 +26,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   if (!service) return {};
 
   return pageMetadata({
-    title: service.title,
-    description: service.summary,
+    title: service.seoTitle,
+    description: service.seoDescription,
     path: `/services/${service.slug}`,
   });
 }
@@ -69,7 +69,7 @@ export default async function ServicePage({ params }: Params) {
         lead={service.summary}
       >
         <div className="flex flex-wrap items-center gap-3">
-          <Link href="/contact" className="btn btn-primary">
+          <Link href={BOOKING_HREF} className="btn btn-primary">
             Discuss this project <ArrowRight size={16} aria-hidden />
           </Link>
           <ul className="flex flex-wrap gap-1.5" aria-label="Technologies">
@@ -154,6 +154,13 @@ export default async function ServicePage({ params }: Params) {
               <GroundedDemo />
             </Reveal>
           </div>
+
+          <p className="mt-8 text-xs leading-relaxed text-subtle">
+            <Link href="/about#ai-evaluation" className="text-link">
+              How we measure accuracy
+            </Link>{" "}
+            — the 976-question evaluation, what it covers and what it does not claim.
+          </p>
         </Section>
       )}
 
@@ -164,7 +171,7 @@ export default async function ServicePage({ params }: Params) {
         className="border-t border-border"
       >
         <ol className="grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
-          {process.map((step) => (
+          {deliveryProcess.map((step) => (
             <li key={step.n} className="border-t border-border pt-5">
               <div className="flex items-baseline gap-3">
                 <span className="font-mono text-xs text-primary-soft">{step.n}</span>
@@ -185,7 +192,7 @@ export default async function ServicePage({ params }: Params) {
         >
           <div className="grid gap-4 md:grid-cols-3">
             {related.map((study, i) => (
-              <Reveal key={study.slug} delay={i * 60} className="h-full">
+              <Reveal key={study.slug} delay={i * 60} className="h-full min-w-0">
                 <CaseStudyCard study={study} />
               </Reveal>
             ))}

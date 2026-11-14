@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Check, TrendingUp } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
@@ -7,7 +8,7 @@ import JsonLd from "@/components/JsonLd";
 import ArchitectureDiagram from "@/components/ArchitectureDiagram";
 import FinalCTA from "@/components/FinalCTA";
 import Reveal from "@/components/Reveal";
-import { SITE } from "@/content/site";
+import { BOOKING_HREF, SITE } from "@/content/site";
 import { pageMetadata } from "@/content/seo";
 import { serviceBySlug } from "@/content/services";
 import { caseStudies, caseStudyBySlug } from "@/content/work";
@@ -76,6 +77,29 @@ export default async function CaseStudyPage({ params }: Params) {
               <p className="lead">{study.intro}</p>
             </Reveal>
 
+            {study.media && study.media.length > 0 && (
+              <Reveal className="mt-8">
+                <ul className="grid gap-4 sm:grid-cols-2">
+                  {study.media.map((shot) => (
+                    <li key={shot.src}>
+                      <figure>
+                        <Image
+                          src={shot.src}
+                          alt={shot.alt}
+                          width={1280}
+                          height={800}
+                          sizes="(min-width: 1024px) 32rem, 100vw"
+                          className="h-auto w-full rounded-lg border border-border"
+                          loading="lazy"
+                        />
+                        {shot.caption && <figcaption className="mt-2 text-xs text-subtle">{shot.caption}</figcaption>}
+                      </figure>
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
+            )}
+
             <Reveal className="mt-10">
               <section aria-labelledby={`${study.slug}-challenge`}>
                 <h2 id={`${study.slug}-challenge`} className="text-lg font-semibold tracking-tight text-foreground">
@@ -141,6 +165,33 @@ export default async function CaseStudyPage({ params }: Params) {
               </section>
             </Reveal>
 
+            {study.deepDive && (
+              <Reveal className="mt-10">
+                <section aria-labelledby={`${study.slug}-deep-dive`}>
+                  <h2
+                    id={`${study.slug}-deep-dive`}
+                    className="text-lg font-semibold tracking-tight text-foreground"
+                  >
+                    Engineering deep dive
+                  </h2>
+                  <div className="mt-3 grid gap-3 sm:grid-cols-3">
+                    {[
+                      { label: "The hard part", body: study.deepDive.challenge },
+                      { label: "The approach", body: study.deepDive.approach },
+                      { label: "The trade-off", body: study.deepDive.tradeoff },
+                    ].map((block) => (
+                      <div key={block.label} className="card p-5">
+                        <p className="font-mono text-[0.6875rem] tracking-[0.14em] text-primary-soft uppercase">
+                          {block.label}
+                        </p>
+                        <p className="mt-2 text-sm leading-relaxed text-muted">{block.body}</p>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              </Reveal>
+            )}
+
             <Reveal className="mt-10">
               <section aria-labelledby={`${study.slug}-results`}>
                 <h2 id={`${study.slug}-results`} className="text-lg font-semibold tracking-tight text-foreground">
@@ -159,6 +210,16 @@ export default async function CaseStudyPage({ params }: Params) {
                     ))}
                   </ul>
                 </div>
+
+                {study.scopeNote && <p className="mt-3 text-xs leading-relaxed text-subtle">{study.scopeNote}</p>}
+
+                {study.links?.aiEvaluation && (
+                  <p className="mt-3 text-xs">
+                    <Link href="/about#ai-evaluation" className="text-link">
+                      Read how the accuracy figure was measured
+                    </Link>
+                  </p>
+                )}
               </section>
             </Reveal>
 
@@ -216,7 +277,13 @@ export default async function CaseStudyPage({ params }: Params) {
                 ))}
               </ul>
 
-              <Link href="/contact" className="btn btn-primary mt-6 w-full">
+              <p className="mt-5 border-t border-border pt-4 text-xs leading-relaxed text-subtle">
+                {study.media && study.media.length > 0
+                  ? "Screenshots are published with client permission."
+                  : "Product screenshots are shared under NDA where the client allows it; the walkthrough covers the system in detail."}
+              </p>
+
+              <Link href={BOOKING_HREF} className="btn btn-primary mt-4 w-full">
                 Discuss a similar project
               </Link>
             </div>

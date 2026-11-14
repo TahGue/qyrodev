@@ -4,6 +4,13 @@
 
 export type Size = "small" | "mid" | "large";
 
+export type CaseStudyMedia = {
+  /** Path under /public, e.g. "/work/finance/dashboard.webp". */
+  src: string;
+  alt: string;
+  caption?: string;
+};
+
 export type CaseStudy = {
   slug: string;
   size: Size;
@@ -21,6 +28,17 @@ export type CaseStudy = {
   metric: string;
   lessons: string[];
   service: string;
+  /** One engineering decision worth explaining. Omit rather than invent. */
+  deepDive?: { challenge: string; approach: string; tradeoff: string };
+  /**
+   * Real screenshots only. Leave empty until a client has cleared actual product images;
+   * the page falls back to the architecture diagram, never to a mock-up.
+   */
+  media?: CaseStudyMedia[];
+  /** Shown with the results when a claim needs its scope spelled out. */
+  scopeNote?: string;
+  /** Cross-links to methodology pages that explain a published figure. */
+  links?: { aiEvaluation?: boolean };
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -62,6 +80,14 @@ export const caseStudies: CaseStudy[] = [
       "Every repair tracked in one queue, with a daily KPI overview",
     ],
     metric: "Website + POS sync + repair queue",
+    deepDive: {
+      challenge:
+        "The till owned the product catalogue while repairs lived in a paper book, so two sources of truth drifted apart within days.",
+      approach:
+        "A scheduled job mirrors the till catalogue into the site's database, and the repair queue stores status changes as events instead of overwriting a single mutable field.",
+      tradeoff:
+        "Mirroring means the site can trail the till by one sync window. For prices that was acceptable; the last sync time is shown in the admin panel so the owner can see it.",
+    },
     lessons: [
       "Catalogues want a single source of truth; mirroring beats duplicating.",
       "For a small team, an unglamorous daily overview beats a dashboard nobody opens.",
@@ -108,6 +134,14 @@ export const caseStudies: CaseStudy[] = [
       "Service contracts tracked so renewals are not missed",
     ],
     metric: "Covered by unit and end-to-end tests",
+    deepDive: {
+      challenge:
+        "Four spreadsheets described the same job in different vocabularies, so a quote, a visit and an invoice never shared an identifier.",
+      approach:
+        "We modelled one job lifecycle — customer, quote, work order, invoice, contract — and made each screen a view over the same records instead of a separate document.",
+      tradeoff:
+        "The lifecycle model is stricter than the spreadsheets and rejects states the old sheets tolerated. We migrated those edge cases explicitly rather than loosening the model.",
+    },
     lessons: [
       "Naming the lifecycle is half the design: the database wants to mirror the business.",
       "Migration tooling is part of the product, not a one-off script.",
@@ -149,10 +183,20 @@ export const caseStudies: CaseStudy[] = [
     stack: ["TypeScript", "Node.js", "PostgreSQL", "React", "Next.js", "Docker", "Linux"],
     results: [
       "One system instead of three or four tools",
-      "Compliant by design: BAS, SIE 4, Peppol e-invoicing",
+      "Built to Swedish requirements: BAS chart of accounts, SIE 4 and Peppol e-invoicing",
       "Accountants work directly in the same system",
     ],
     metric: "BAS · SIE 4 · Peppol · K2",
+    scopeNote:
+      "The regulatory capabilities on this page describe what was implemented for this platform. Scope, accounting standard versions and compliance status are confirmed per delivery.",
+    deepDive: {
+      challenge:
+        "Invoices change, but bookkeeping history must not. A single editable ledger row makes year-end reconciliation impossible to audit.",
+      approach:
+        "Postings are immutable; corrections are compensating entries, and every report is derived from the posting log rather than from an aggregate that can be edited.",
+      tradeoff:
+        "The log grows and reporting needs indexes and summaries, but every figure can be traced back to the entry that produced it — which is what an accountant actually needs.",
+    },
     lessons: [
       "In finance, the data model is the compliance story.",
       "Accountants are the real integration test: watch them use it early.",
@@ -198,7 +242,18 @@ export const caseStudies: CaseStudy[] = [
       "Answers come with evidence, or a clear “not in the data”",
       "Accuracy measured before go-live",
     ],
-    metric: "0 wrong answers across 976 test questions",
+    metric: "0 incorrect answers in the 976-question evaluation",
+    links: { aiEvaluation: true },
+    scopeNote:
+      "The accuracy figure applies to the evaluated test set at delivery. How that set is built and scored is described in the evaluation methodology; ongoing accuracy depends on the data and is re-measured on change.",
+    deepDive: {
+      challenge:
+        "General-purpose chat models produced fluent prose with invented numbers, which made them unusable for reports that feed real engineering decisions.",
+      approach:
+        "The calculation engine produces the facts and the model only explains them; a retrieval layer attaches the source to each claim; a refusal policy returns \"not in the data\" when the evidence is missing.",
+      tradeoff:
+        "The assistant answers fewer questions than a general chatbot, by design. Every refusal is logged, which turned out to be the most useful signal for knowing what data to connect next.",
+    },
     lessons: [
       "Give the model tools, not truth: calculation stays in code.",
       "A refusal is a feature. It is what makes the other answers trustworthy.",

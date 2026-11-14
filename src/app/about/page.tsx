@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
 import Section from "@/components/Section";
+import AIEvaluation from "@/components/AIEvaluation";
 import FinalCTA from "@/components/FinalCTA";
 import Philosophy from "@/components/Philosophy";
 import Process from "@/components/Process";
 import JsonLd from "@/components/JsonLd";
 import Reveal from "@/components/Reveal";
-import { SITE, proofMetrics, team } from "@/content/site";
+import { SITE, proofMetrics, team, teamStructure } from "@/content/site";
 import { pageMetadata } from "@/content/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -66,6 +67,21 @@ export default function AboutPage() {
       </Section>
 
       <Section
+        eyebrow="How we are organised"
+        title={teamStructure.title}
+        intro={teamStructure.summary}
+        className="border-t border-border"
+      >
+        <ul className="grid gap-4 sm:grid-cols-3">
+          {teamStructure.points.map((point) => (
+            <li key={point} className="border-t border-border-strong pt-5 text-sm leading-relaxed text-muted">
+              {point}
+            </li>
+          ))}
+        </ul>
+      </Section>
+
+      <Section
         eyebrow="Track record"
         title="What the numbers stand for"
         intro="These are the only figures we publish. Each one maps to delivered work, not to a marketing goal."
@@ -80,7 +96,16 @@ export default function AboutPage() {
             </div>
           ))}
         </dl>
+
+        <p className="mt-4 text-xs text-subtle">
+          <a href="#ai-evaluation" className="text-link">
+            Read how the AI accuracy figure was measured
+          </a>{" "}
+          · client references are available on request.
+        </p>
       </Section>
+
+      <AIEvaluation />
 
       <Philosophy />
       <Process />

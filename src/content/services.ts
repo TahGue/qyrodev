@@ -10,6 +10,9 @@ export type Service = {
   slug: ServiceSlug;
   icon: "code" | "sparkles" | "workflow" | "layers";
   title: string;
+  /** Page <title>, tuned per service; the layout appends "| QYRODEV". */
+  seoTitle: string;
+  seoDescription: string;
   navLabel: string;
   summary: string;
   intro: string[];
@@ -24,6 +27,9 @@ export const services: Service[] = [
     slug: "software-engineering",
     icon: "code",
     title: "Custom Software Engineering",
+    seoTitle: "Custom Software Development in Sweden",
+    seoDescription:
+      "Custom web applications, backend systems and integrations engineered in Sweden. Typed code, automated tests and source code you own.",
     navLabel: "Software engineering",
     summary:
       "Web applications, backend systems, APIs and integrations built around how your business actually works.",
@@ -52,6 +58,9 @@ export const services: Service[] = [
     slug: "ai-engineering",
     icon: "sparkles",
     title: "AI Engineering",
+    seoTitle: "AI Engineering & Private AI",
+    seoDescription:
+      "Private AI infrastructure, assistants and agents that answer from your own data with measured accuracy, citations and honest refusals.",
     navLabel: "AI engineering",
     summary:
       "Private AI infrastructure, assistants and agentic systems that answer from your own data — or admit they cannot.",
@@ -80,6 +89,9 @@ export const services: Service[] = [
     slug: "business-automation",
     icon: "workflow",
     title: "Business Automation",
+    seoTitle: "Business Process Automation",
+    seoDescription:
+      "Workflow automation, system integrations and reporting that remove manual admin, built and documented by a Swedish engineering studio.",
     navLabel: "Business automation",
     summary:
       "Replace manual handoffs, spreadsheets and copy-paste reporting with systems and integrations that run themselves.",
@@ -108,6 +120,9 @@ export const services: Service[] = [
     slug: "digital-products",
     icon: "layers",
     title: "Digital Product Development",
+    seoTitle: "SaaS & Digital Product Development",
+    seoDescription:
+      "Product architecture, UI/UX design and production-ready SaaS or MVP delivery from a senior engineering studio in Sweden.",
     navLabel: "Digital products",
     summary:
       "From product architecture and design to a launched, maintainable SaaS or MVP your customers can use.",

@@ -6,7 +6,7 @@ import Section from "@/components/Section";
 import AudienceCards from "@/components/AudienceCards";
 import FinalCTA from "@/components/FinalCTA";
 import JsonLd from "@/components/JsonLd";
-import { SITE, process } from "@/content/site";
+import { BOOKING_HREF, SITE, deliveryProcess } from "@/content/site";
 import { pageMetadata } from "@/content/seo";
 import { services } from "@/content/services";
 
@@ -82,7 +82,7 @@ export default function ServicesPage() {
         className="border-t border-border"
       >
         <ol className="grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
-          {process.map((step) => (
+          {deliveryProcess.map((step) => (
             <li key={step.n} className="border-t border-border pt-5">
               <div className="flex items-baseline gap-3">
                 <span className="font-mono text-xs text-primary-soft">{step.n}</span>
@@ -99,7 +99,7 @@ export default function ServicesPage() {
           <p className="text-sm text-muted">
             Not sure which area fits? The free call exists for exactly that question.
           </p>
-          <Link href="/contact" className="btn btn-secondary">
+          <Link href={BOOKING_HREF} className="btn btn-secondary">
             Book a 30-minute call
           </Link>
         </div>

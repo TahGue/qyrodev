@@ -1,4 +1,4 @@
-import { process } from "@/content/site";
+import { deliveryProcess } from "@/content/site";
 import Reveal from "./Reveal";
 import Section from "./Section";
 
@@ -11,7 +11,7 @@ export default function Process() {
       intro="A visible process, weekly demos and no surprises at the end. You see the software working as it is built."
     >
       <ol className="grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
-        {process.map((step, i) => (
+        {deliveryProcess.map((step, i) => (
           <li key={step.n}>
             <Reveal delay={(i % 3) * 60} className="border-t border-border pt-5">
               <div className="flex items-baseline gap-3">
